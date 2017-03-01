@@ -1,0 +1,78 @@
+.example-card {
+  width: 400px;
+  margin: 140px;
+  margin-left: 150px;
+  font-size: 20px;
+  background: transparent;
+
+}
+
+.equilabName {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+@media screen and (max-width: 750px){
+  .example-card {
+    width: auto;
+    margin: 0;
+    margin-left: 0;
+    font-size: 20px;
+    background: transparent;
+    padding-top: 100px;
+  }
+}
+
+.example-full-width {
+  width: 100%;
+  color: #FFFFFF;
+}
+
+.mat-card {
+  color: #FFFFFF;
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  background-color: #ED6C44;
+  color: #FFFFFF;
+  font-size: 18px;
+
+}
+
+.newAccount {
+  margin-top: 40px;
+
+}
+
+md-progress-spinner {
+  margin-top: 20px;
+  height: 150px;
+  width: inherit;
+
+}
+
+.error-text {
+  color: red;
+}
+
+div.custom-background {
+  padding: 0 0;
+  margin-bottom: 0;
+  color: #FFFFFF;
+  height: 100vh;
+  z-index: 3000;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(55, 63, 72, 0.8) 100%, rgba(55, 63, 72, 0.8) 100%, rgba(55, 63, 72, 0.8) 100%, rgba(55, 63, 72, 0.8) 100%), url(assets/images/RiderBackgroundBlurMedium.jpg);
+  background-size: cover;
+
+}

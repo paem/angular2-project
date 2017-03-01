@@ -1,0 +1,153 @@
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 135px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #ED6C44;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 15px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+
+}
+
+.navbar {
+  width: 100%;
+  min-height:5px !important;
+  background-color: #ED6C44;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.26);
+
+}
+
+
+
+/* The navigation menu links */
+a {
+  padding: 0 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+hr {
+  border-color: #FFFFFF;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #2b2b2b;
+}
+
+span {
+  margin-right: 15px;
+}
+
+ul {
+  list-style-type: none;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+
+.active{
+  color:black;
+}
+.user{
+  padding: 0 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #ffffff;
+  transition: 0.3s;
+}
+.userinfo,
+.header{
+  padding: 15px 5px 0px 16px;
+  position: relative;
+}
+.info{
+  padding: 8px 0 8px 80px;
+}
+.username{
+  font-size: 18px;
+  line-height: 24px;
+}
+.useremail{
+  font-size: 12px;
+  line-height: 1.35;
+}
+.avatar{
+  position: absolute;
+  height: 60px;
+  width: 60px;
+
+}
+.avatar a.avatar:hover  {
+  background-color: #2b2b2b;
+  border-radius: 100%;
+}
+.avatarActive{
+  background-color: black;
+  border-radius: 100%;
+}
+.avatar a {
+  height: 60px;
+  width: 60px;
+}
+
+@media screen and (max-width: 750px){
+  .sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 90px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #ED6C44;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 15px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+
+
+  }
+
+
+
+
+    img {
+      height:35px;
+    }
+
+
+    .name {
+      height: 15px;
+
+    }
+
+    .horse,.logo {
+      margin-left: 10px;
+    }
+
+
+
+  a {
+    padding: 0 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  #logoutSpan {
+    margin-top:345px !important;
+    margin-left:5px !important;
+
+  }
+}

@@ -1,0 +1,80 @@
+<title>Equilab | Overview</title>
+
+<div class="container">
+  <div class="wrapper">
+
+    <div id="page-wrapper" [@slideToLeft]="'true'">
+      <div>
+<md-card>
+        <md-tab-group>
+
+          <md-tab>
+            <select #select [(ngModel)]="current" (change)="logDropdown(select.value)">
+              <option *ngFor="let item of list" [value]="item.id">{{item.name}}</option>
+            </select>
+
+            <h2>Log <button (click)="log=''">Clear</button></h2>
+            <pre>{{log}}</pre>
+
+
+            <template class="tabColor" md-tab-label>
+             Månader
+            </template>
+            <h1>Test</h1>
+            <p>{{weekday | date:"ww"}}</p>
+            <hr style="border-color: lightgrey; width:100%;">
+          </md-tab>
+          <md-tab>
+            <template md-tab-label>
+              Veckor
+            </template>
+            <table class="table-responsive" style="width:100%;">
+            <tr>
+              <th style="" class="rowsPadding">Hästar</th>
+              <th class="rowsPadding">Tis</th>
+              <th class="rowsPadding">Ons</th>
+              <th class="rowsPadding">Tors</th>
+              <th class="rowsPadding">Fred</th>
+              <th class="rowsPadding">Lör</th>
+              <th class="rowsPadding">Sön</th>
+              <th class="rowsPadding">
+                <div class="week-number">
+                V -{{weekOfYear | week}}
+              </div></th>
+            </tr>
+             <tr>
+               <td style="display: flex" class="rowsPadding" *ngFor="let item of horses | async">
+                 {{item.name}}
+               </td>
+
+             </tr>
+            </table>
+            <hr style="border-color: lightgrey; width:100%;">
+          </md-tab>
+          <md-tab>
+            <template md-tab-label>
+              Dagar
+            </template>
+            <table class="table-responsive" style="width: 100%;">
+              <tr >
+                <th style="" class="rowsPadding">Hästar</th>
+                <th class="rowsPadding">Tis</th>
+                <th class="rowsPadding">Ons</th>
+                <th class="rowsPadding">Tors</th>
+                <th class="rowsPadding">Fred</th>
+                <th class="rowsPadding">Lör</th>
+                <th class="rowsPadding">Sön</th>
+                <th class="rowsPadding">Idag</th>
+              </tr>
+              <tr></tr>
+            </table>
+            <hr style="border-color: lightgrey; width:100%;">
+          </md-tab>
+        </md-tab-group>
+</md-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+

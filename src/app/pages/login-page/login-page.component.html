@@ -1,0 +1,55 @@
+<title>Equilab | Login to your account</title>
+
+
+<div class="custom-background">
+  <a class="navbar-brand" href="https://equilab.horse/"><img class="equilabName"
+                                                             src="assets/images/equilabName.png"
+                                                             height="25px"/></a>
+  <div align=center class="container">
+
+
+    <div *ngIf="error" class="alert alert-warning" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      {{error}}
+    </div>
+
+    <md-card class="example-card" [@slideUp]="'true'">
+      <h2 *ngIf="!isLoading" style="font-size: 22px;"><img
+        src="assets/images/equilabFavicon.png" height="60" width="60"/></h2>
+      <h2 *ngIf="isLoading" style="font-size: 22px;"><img src="assets/images/equilabFavicon.png" height="200"
+                                                          width="200"/></h2>
+
+
+      <form *ngIf="!isLoading" class="example-form" #signInForm="ngForm" (ngSubmit)="loginWithEmail(signInForm)">
+        <md-input-container class="example-full-width">
+          <input mdInput placeholder="Email" type="email" name="email" class="email" ngModel required>
+        </md-input-container>
+
+
+        <md-input-container class="example-full-width">
+          <input mdInput placeholder="Lösenord" type="password" name="password" class="password"  ngModel required>
+        </md-input-container>
+        <br>
+        <div class="text-center">
+          <button md-raised-button type="submit">Login</button>
+          <br>
+          <p *ngIf="error" class="error-text">{{errorMessage}}</p>
+        </div>
+        <button md-raised-button  style="margin-top: 10px;" (click)="logInWithFacebook()">Login with Facebook</button>
+
+        <a href="#" style="font-size: 15px;"> Forgot your password?</a>
+
+      </form>
+
+      <div *ngIf="isLoading" class="text-center">
+        <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
+      </div>
+
+    </md-card>
+
+  </div>
+
+</div>
+
+

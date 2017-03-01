@@ -1,0 +1,33 @@
+//Equilab project
+.container{
+  padding-left: 150px;
+  margin-top: 60px;
+  width: auto;
+}
+@media screen and (max-width: 750px){
+  .container{
+    padding-left: 120px;
+    margin-top: 60px;
+    width: auto;
+  }
+}
+
+.rowsPadding{
+  padding: 20px;
+  color:grey;
+}
+
+
+//funkar ej waaaaat
+.mat-ripple{
+  background-color: #ED6C44 !important;
+}
+.mat-tab-label{
+  background-color: #ED6C44 !important;
+}
+.mat-card{
+
+}
+label{
+  background-color: green;
+}

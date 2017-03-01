@@ -1,0 +1,34 @@
+<div *ngIf="isAuth()" class="navbar navbar-fixed-top"></div>
+
+<div *ngIf="isAuth()" id="mySidenav" class="sidenav">
+
+
+  <div>
+   <!-- <div class="userinfo">
+      <div style="" class="avatar">
+       <a class="avatar" style="padding: 0;" [routerLink]="['profile']" routerLinkActive="avatarActive"><i class="material-icons" style="font-size: 60px; color: #FFFFFF;">account_circle</i></a>
+      </div>
+      <div class="info">
+        <span style="color: #FFFFFF;" class="username">Logged in as:</span>
+        <span style="color: #FFFFFF;" class="useremail">{{user}}</span>
+      </div>
+    </div> -->
+
+
+    <a style="color: #FFFFFF; " [routerLink]="['/home']" routerLinkActive="active"> <img class="logo" src="assets/images/equilab-logo.png"><img class="name" style="margin-top: 10px;" src="assets/images/equilabName.png" height="20"></a>
+    <hr>
+    <a [routerLink]="['/overview']" routerLinkActive="active"><img class="horse" src="assets/images/horse-sidenav.png"></a>
+    <hr>
+    <a [routerLink]="['/mystable']" routerLinkActive="active"><img style="margin-left: 10px;" src="assets/images/horseshoe-sidenav.png" height="45"></a>
+    <hr>
+    <a [routerLink]="['/home']" routerLinkActive="active"><img style="margin-left: 10px;" src="assets/images/trophy-sidenav.png" height="45"></a>
+    <hr>
+    <a (click)="onSignOut()">Logout<span id="logoutSpan" style="position: absolute; margin-top: 428px; margin-left: 10px;" class="glyphicon glyphicon-lock"></span></a>
+
+    <!-- <a [routerLink]="['/about']" routerLinkActive="active"><span class="glyphicon glyphicon-info-sign"></span>About</a>
+    <hr> -->
+
+  </div>
+</div>
+
+
