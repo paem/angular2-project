@@ -70,7 +70,7 @@ export class OverviewPageComponent implements OnInit{
     { id: 6, name: 'Turns' },
     { id: 7, name: 'Preformance' }
   ];
-  private current: number = 2;
+  private current: number = 1;
   private log: string ='';
 
   private logDropdown(id: number): void {
