@@ -24,6 +24,7 @@ import {WeekPipe} from "./pages/overview-page/week.pipe";
 
 
 
+
 export const firebaseConfig = {
   apiKey: "AIzaSyBLAepT58ZEGZssaxDa5ohWJo3fjpP9gD8",
   authDomain: "equilab-157516.firebaseapp.com",
@@ -53,7 +54,7 @@ export const firebaseConfig = {
     AboutPageComponent,
     MyStablePageComponent,
     CollapseDirective,
-    WeekPipe,
+    WeekPipe
 
   ],
   bootstrap: [ AppComponent ],

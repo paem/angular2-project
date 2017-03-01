@@ -17,6 +17,7 @@ export class OverviewPageComponent implements OnInit{
   public user: any;
   horses: FirebaseListObservable<any[]>;
   trainings: FirebaseListObservable<any[]>;
+
   constructor(private angularfire: AngularFire) {
 
     this.angularfire.auth.subscribe(
@@ -28,16 +29,12 @@ export class OverviewPageComponent implements OnInit{
         }
       });
 
-
-
-
   }
 
   ngOnInit(){
 
     this.userInfo();
   }
-
 
   userInfo(){
 
