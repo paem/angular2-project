@@ -14,7 +14,7 @@ const APP_ROUTES: Routes = [
   { path: 'about', component: AboutPageComponent, canActivate: [AuthGuard]},
   { path: 'home', component: HomePageComponent, canActivate: [AuthGuard] },
   { path: 'mystable', component: MyStablePageComponent, canActivate: [AuthGuard] },
-  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: '',   redirectTo: '/overview', pathMatch: 'full' },
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);
