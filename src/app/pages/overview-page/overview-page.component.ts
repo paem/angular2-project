@@ -62,11 +62,11 @@ export class OverviewPageComponent implements OnInit{
   }
 
   private list = [
-    { id: 1, name: 'Underlag' },
+    { id: 1, name: 'Basis' },
     { id: 2, name: 'Gait' },
-    { id: 3, name: 'Tid' },
-    { id: 4, name: 'Distans' },
-    { id: 5, name: 'Ryttare' },
+    { id: 3, name: 'Time' },
+    { id: 4, name: 'Distance' },
+    { id: 5, name: 'Rider' },
     { id: 6, name: 'Turns' },
     { id: 7, name: 'Preformance' }
   ];
