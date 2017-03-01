@@ -68,7 +68,7 @@ export class OverviewPageComponent implements OnInit{
     { id: 4, name: 'Distance' },
     { id: 5, name: 'Rider' },
     { id: 6, name: 'Turns' },
-    { id: 7, name: 'Preformance' }
+    { id: 7, name: 'Performance' }
   ];
   private current: number = 1;
   private log: string ='';
