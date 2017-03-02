@@ -13,39 +13,42 @@
             <template class="tabColor" md-tab-label>
              Months
             </template>
-              <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="logDropdown(select.value)">
+              <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="selectedFromList($event.target.selectedIndex)">
               <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}</option>
               </select>
             <p>{{weekday | date:"ww"}}</p>
             <hr style="border-color: lightgrey; width:100%;">
+              <p *ngFor='let v of _values2'>{{ v }} </p>
           </md-tab>
           <md-tab>
             <template md-tab-label>
               Weeks
             </template>
-            <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="logDropdown(select.value)">
-              <option *ngFor="let item of list"  [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}<option>
+            <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="selectedFromList($event.target.selectedIndex)">
+              <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}</option>
             </select>
+            <p *ngFor='let v of _values2'>{{ v }} </p>
             <table class="table-responsive" style="width:100%;">
-            <tr>
-              <th style="" class="rowsPadding">Horses</th>
-              <th class="rowsPadding">W-3</th>
-              <th class="rowsPadding">W-4</th>
-              <th class="rowsPadding">W-5</th>
-              <th class="rowsPadding">W-6</th>
-              <th class="rowsPadding">W-7</th>
-              <th class="rowsPadding">W-8</th>
-              <th class="rowsPadding">
-                <div class="week-number">
-                 W-{{weekOfYear | week}}
-              </div></th>
-            </tr>
-             <tr>
-               <td style="display: flex" class="rowsPadding" *ngFor="let item of horses | async">
-                 {{item.name}}
-               </td>
+              <tr>
+                {{test}}
+                <th style="" class="rowsPadding">Horses</th>
+                <th class="rowsPadding">W-3</th>
+                <th class="rowsPadding">W-4</th>
+                <th class="rowsPadding">W-5</th>
+                <th class="rowsPadding">W-6</th>
+                <th class="rowsPadding">W-7</th>
+                <th class="rowsPadding">W-8</th>
+                <th class="rowsPadding">
+                  <div class="week-number">
+                    W-{{weekOfYear | week}}
+                  </div></th>
+              </tr>
+              <tr>
+                <td style="display: flex" class="rowsPadding" *ngFor="let item of horses | async">
+                  {{item.name}}
+                </td>
 
-             </tr>
+              </tr>
             </table>
             <hr style="border-color: lightgrey; width:100%;">
           </md-tab>
@@ -54,9 +57,10 @@
             <template md-tab-label>
               Days
             </template>
-            <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="logDropdown(select.value)">
+            <select #select [(ngModel)]="current" [ngClass]="{setColor: current}" (change)="selectedFromList($event.target.selectedIndex)">
               <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}</option>
             </select>
+            <p *ngFor='let v of _values2'>{{ v }} </p>
             <table class="table-responsive" style="width: 100%;">
               <tr >
                 <th style="" class="rowsPadding">Horses</th>
