@@ -34,6 +34,34 @@ export class OverviewPageComponent implements OnInit{
   ngOnInit(){
 
     this.userInfo();
+    this.trainingsInfo();
+  }
+
+  trainingsInfo() {
+
+    let uid = this.userKey;
+
+    // Map the stuffs
+    let userTrainings = this.angularfire.database.list('/v1/userinfo/' + uid + '/trainings/', {
+      query: {},
+    }).map(results => {
+      results.map(result => {
+        result.trainings = this.angularfire.database.object('/v1/trainings/' + result.$key);
+      });
+      return results;
+    });
+
+
+    // Subscribes to the userTrainings
+    userTrainings.subscribe(userTrainings => {
+      userTrainings.forEach(userTraining => {
+        userTraining.trainings.subscribe(training => {
+          // user trainings comes here
+          console.log(training);
+        });
+
+      })
+    });
   }
 
   userInfo(){
