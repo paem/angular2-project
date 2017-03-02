@@ -47,6 +47,8 @@
                 <td style="display: flex" class="rowsPadding" *ngFor="let item of horses | async">
                   {{item.name}}
                 </td>
+                <td style="" class="rowsPadding" *ngFor="let item of trainingsS | async ">
+                  {{item.canter.beat}}
                 </td>
 
               </tr>
