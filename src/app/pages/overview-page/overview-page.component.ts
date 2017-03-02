@@ -75,6 +75,7 @@ export class OverviewPageComponent implements OnInit{
       }
     });
 
+
   this.trainingsS = this.angularfire.database.list('/v1/trainings/', {
   query: {
     orderByChild: 'user',
@@ -83,7 +84,7 @@ export class OverviewPageComponent implements OnInit{
   }
 
 });
-    console.log(this.trainingsS);
+
   }
 
   private list = [
