@@ -17,7 +17,7 @@ export class OverviewPageComponent implements OnInit{
   public user: any;
   horses: FirebaseListObservable<any[]>;
   trainings: FirebaseListObservable<any[]>;
-
+  trainingsS: FirebaseListObservable<any[]>;
   constructor(private angularfire: AngularFire) {
 
     this.angularfire.auth.subscribe(
@@ -75,7 +75,7 @@ export class OverviewPageComponent implements OnInit{
       }
     });
 
-  this.trainings = this.angularfire.database.list('/v1/trainings/', {
+  this.trainingsS = this.angularfire.database.list('/v1/trainings/', {
   query: {
     orderByChild: 'user',
     indexOn: "user",
@@ -83,7 +83,7 @@ export class OverviewPageComponent implements OnInit{
   }
 
 });
-
+    console.log(this.trainingsS);
   }
 
   private list = [
