@@ -32,6 +32,9 @@ export class OverviewPageComponent implements OnInit{
 
   }
 
+
+
+
   ngOnInit(){
 
    // this.userInfo();
@@ -65,6 +68,8 @@ export class OverviewPageComponent implements OnInit{
     });
   }
 */
+
+
   trainingsInfo() {
 // SENASTE funktionen ... är nära nu ...
     this.horses = this.angularfire.database.list('/v1/horses/', {
@@ -72,13 +77,18 @@ export class OverviewPageComponent implements OnInit{
         orderByChild: 'owner_id',
         equalTo: this.userKey
       },}).map((horses) => {
-        return horses.map((trainings) => {
-          horses.trainings = this.angularfire.database.list(`/v1/trainings/${horses.$key}`)
+        return horses.map((horses) => {
+          horses.training = this.angularfire.database.list(`/v1/trainings/${horses.$key}`)
           console.log(horses);
           return horses;
         })
 
       })
+
+
+
+
+
 
     }
 
