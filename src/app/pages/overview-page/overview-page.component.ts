@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFire, FirebaseListObservable} from "angularfire2";
 import {slideToLeft} from "../../shared/animations/router.animations";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-overview-page',
@@ -15,9 +16,9 @@ export class OverviewPageComponent implements OnInit{
   today = new Date();
   public userKey: string;
   public user: any;
-  horses: FirebaseListObservable<any[]>;
-  trainings: FirebaseListObservable<any[]>;
-  trainingsS: FirebaseListObservable<any[]>;
+  horses: Observable<any[]>;
+  //trainings: Observable<any[]>;
+
   constructor(private angularfire: AngularFire) {
 
     this.angularfire.auth.subscribe(
@@ -33,11 +34,11 @@ export class OverviewPageComponent implements OnInit{
 
   ngOnInit(){
 
-    this.userInfo();
+   // this.userInfo();
     this.trainingsInfo();
   }
 
-  trainingsInfo() {
+ /* trainingsInfo() {
 
     let uid = this.userKey;
 
@@ -63,8 +64,28 @@ export class OverviewPageComponent implements OnInit{
       })
     });
   }
+*/
+  trainingsInfo() {
+// SENASTE funktionen ... är nära nu ...
+    this.horses = this.angularfire.database.list('/v1/horses/', {
+      query: {
+        orderByChild: 'owner_id',
+        equalTo: this.userKey
+      },}).map((horses) => {
+        return horses.map((trainings) => {
+          horses.trainings = this.angularfire.database.list(`/v1/trainings/${horses.$key}`)
+          console.log(horses);
+          return horses;
+        })
 
-  userInfo(){
+      })
+
+    }
+
+
+
+
+/*  userInfo(){
 
     this.horses = this.angularfire.database.list('/v1/horses/', {
       query: {
@@ -76,7 +97,7 @@ export class OverviewPageComponent implements OnInit{
     });
 
 
-  this.trainingsS = this.angularfire.database.list('/v1/trainings/', {
+  this.trainings = this.angularfire.database.list('/v1/trainings/', {
   query: {
     orderByChild: 'user',
     indexOn: "user",
@@ -86,6 +107,7 @@ export class OverviewPageComponent implements OnInit{
 });
 
   }
+  */
 
   private list = [
     { id: 1, name: 'Basis' },

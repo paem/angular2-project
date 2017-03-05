@@ -33,7 +33,7 @@ export class HomePageComponent implements OnInit {
   }
 
 
-  userInfo() {
+ /* userInfo() {
 
 
     this.userinfo = this.angularfire.database.list('/v1/userinfo/', {
@@ -64,7 +64,7 @@ export class HomePageComponent implements OnInit {
 
 
   }
-
+*/
 
   // DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO
   // DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO DEMO
