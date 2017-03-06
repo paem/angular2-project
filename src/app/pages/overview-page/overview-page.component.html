@@ -126,7 +126,8 @@
                   <hr>
 
 
-                  <div *ngFor="let training of currentHorseTrainings; let trainingIndex = index" style="border: 2px solid black; margin: 40px 0">
+                  <div *ngFor="let training of horse.trainingsData; let trainingIndex = index"
+                       style="border: 2px solid black; margin: 40px 0">
                     <p>Datum: {{training?.date}}</p><br>
                     <p>Counter Time: {{training?.canter.time}}</p><br>
                     <p>Walk Time: {{training?.walk.time}}</p><br>
@@ -135,13 +136,12 @@
                     <div *ngIf="!isLoading" class="block">
                       <h1>{{i}}</h1>
                       <canvas baseChart
-                              [datasets]="barChartData[trainingIndex] ? barChartData[trainingIndex] : [] "
+                              [datasets]="[{data: [training?.trot.time, training?.walk.time, training?.canter.time], label: 'Time'}]"
                               [labels]="barChartLabels"
                               [options]="barChartOptions"
                               [colors]="barChartColors"
                               [legend]="barChartLegend"
                               [chartType]="barChartType">
-
                       </canvas>
                     </div>
 
