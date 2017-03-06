@@ -45,10 +45,10 @@
               </tr>
               <tr>
                 <td style="display: flex;" class="rowsPadding" *ngFor="let horse of horses | async">
-                  {{horse.name}}
+                  {{horse.name}} {{(horses.training | async)?.canter.beat}}
                 </td>
-                <td style="display: flex" class="rowsPadding" *ngFor="let training of horses.training | async">
-                  {{training.canter.beat}}
+                <td style="display: flex" class="rowsPadding" *ngFor="">
+
                 </td>
 
               </tr>

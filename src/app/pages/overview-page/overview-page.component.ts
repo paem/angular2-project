@@ -27,6 +27,7 @@ export class OverviewPageComponent implements OnInit{
           this.user = this.angularfire.database.object('userinfo/' + auth.uid);
           this.userKey = auth.uid;
           console.log(this.userKey);
+          this.trainingsInfo();
         }
       });
 
@@ -38,7 +39,7 @@ export class OverviewPageComponent implements OnInit{
   ngOnInit(){
 
    // this.userInfo();
-    this.trainingsInfo();
+
   }
 
  /* trainingsInfo() {
@@ -78,17 +79,12 @@ export class OverviewPageComponent implements OnInit{
         equalTo: this.userKey
       },}).map((horses) => {
         return horses.map((horses) => {
-          horses.training = this.angularfire.database.list(`/v1/trainings/${horses.$key}`)
+          horses.training = this.angularfire.database.list('/v1/trainings/' + horses.$key);
           console.log(horses);
           return horses;
         })
 
       })
-
-
-
-
-
 
     }
 
