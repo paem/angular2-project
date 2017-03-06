@@ -133,16 +133,15 @@
                     <p>Walk Time: {{training?.walk.time}}</p><br>
                     <p>Trot Time: {{training?.trot.time}}</p><br>
 
-                    <div *ngIf="!isLoading" class="block">
+                    <div *ngIf="!isLoading" class="" style="display:block;">
                       <h1>{{i}}</h1>
-                      <canvas baseChart
+                      <canvas  baseChart width="70" height="70"
                               [datasets]="[{data: [training?.trot.time, training?.walk.time, training?.canter.time], label: 'Time'}]"
                               [labels]="barChartLabels"
                               [options]="barChartOptions"
                               [colors]="barChartColors"
                               [legend]="barChartLegend"
-                              [chartType]="barChartType">
-                      </canvas>
+                              [chartType]="barChartType"></canvas>
                     </div>
 
                   </div>

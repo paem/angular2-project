@@ -173,12 +173,23 @@ export class OverviewPageComponent implements OnInit {
 
 
 
-  public barChartOptions: any = {
-    responsive: true,
-    barThickness: 100
+  public barChartOptions: any = { responsive: false,maintainAspectRatio:true,
+    scaleShowHorizontalLines: false,
+    scaleShowVerticalLines: false,
+    animationEasing: "easeInOutElastic",
+    scaleShowLabels : false,
+    legend: { display: false },
+    scales:
+      {
+        xAxes: [{
+          display: false
+        }],
+        yAxes: [{
+          display: false
+        }]
+      }};
 
 
-  };
 
   public barChartLabels: string[] = ['canter', 'trot', 'walk'];
   public barChartType: string = 'bar';
