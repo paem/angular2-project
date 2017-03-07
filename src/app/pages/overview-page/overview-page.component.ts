@@ -122,6 +122,7 @@ export class OverviewPageComponent implements OnInit {
 /*
   convertMMSS(){
 
+    let totalNumberOfSeconds = NUMBEROFSECONDS (DATABASE VALUE);
     let hours = parseInt( totalNumberOfSeconds / 3600 );
     let minutes = parseInt( (totalNumberOfSeconds - (hours * 3600)) / 60 );
     let seconds = Math.floor((totalNumberOfSeconds - ((hours * 3600) + (minutes * 60))));

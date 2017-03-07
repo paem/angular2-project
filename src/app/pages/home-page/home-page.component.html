@@ -1,173 +1,186 @@
-<title>Equilab | Home</title>
-
-<style> chart {
-  display: block;
-}   </style>
+ <title>Equilab | Home</title>
 
 
-<div class="container">
-  <div class="wrapper">
+ <div class="container">
+   <div class="wrapper">
 
-    <div id="page-wrapper" [@slideToLeft]="'true'">
+     <div id="page-wrapper" [@slideToLeft]="'true'">
+       <h1> Home Page </h1>
 
-      <div class="row">
+     </div>
+   </div>
+ </div>
 
-        <div class="col-md-6">
-
-          <div [@fadeIn]="'true'">
-
-
-            <h1> TEST QUERIES </h1>
-
-            <ul>
-              <li *ngFor="let item of userinfo | async">{{item.first_name}}
-                {{item.weight}}kg {{item.gender}}
-              </li>
-              <li  *ngFor="let item of horses | async">{{item.name}}</li>
-              <li  *ngFor="let item of trainings$ | async">{{item.written_text}}
-                {{item.canter.beat}}
-              </li>
-            </ul>
+ <!--
+ <style> chart {
+   display: block;
+ }   </style>
 
 
-            <div *ngIf="isLoading" class="block">
-              <canvas baseChart
-                      [datasets]="barChartData"
-                      [labels]="barChartLabels"
-                      [options]="barChartOptions"
-                      [colors]="barChartColors"
-                      [legend]="barChartLegend"
-                      [chartType]="barChartType"
-                      (chartHover)="chartHovered($event)"
-                      (chartClick)="chartClicked($event)"></canvas>
+ <div class="container">
+   <div class="wrapper">
+
+     <div id="page-wrapper" [@slideToLeft]="'true'">
+
+       <div class="row">
+
+         <div class="col-md-6">
+
+           <div [@fadeIn]="'true'">
 
 
-            </div>
+             <h1> TEST QUERIES </h1>
 
-            <div *ngIf="!isLoading" class="text-center leftLoad" >
-              <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
-            </div>
-
-          </div>
-
-
-        </div>
-
-
-        <div class="col-md-6">
-
-          <div [@fadeIn]="'true'">
+             <ul>
+               <li *ngFor="let item of userinfo | async">{{item.first_name}}
+                 {{item.weight}}kg {{item.gender}}
+               </li>
+               <li  *ngFor="let item of horses | async">{{item.name}}</li>
+               <li  *ngFor="let item of trainings$ | async">{{item.written_text}}
+                 {{item.canter.beat}}
+               </li>
+             </ul>
 
 
-            <h1> TEST QUERIES </h1>
-            <ul>
-              <li *ngFor="let item of userinfo | async">{{item.first_name}}
-                {{item.weight}}kg {{item.gender}}
-              </li>
-              <li *ngFor="let item of horses | async">{{item.name}}</li>
-              <li *ngFor="let item of trainings$ | async">{{item.written_text}}
-                {{item.canter.beat}}
-              </li>
-            </ul>
+             <div *ngIf="isLoading" class="block">
+               <canvas baseChart
+                       [datasets]="barChartData"
+                       [labels]="barChartLabels"
+                       [options]="barChartOptions"
+                       [colors]="barChartColors"
+                       [legend]="barChartLegend"
+                       [chartType]="barChartType"
+                       (chartHover)="chartHovered($event)"
+                       (chartClick)="chartClicked($event)"></canvas>
 
 
-            <div *ngIf="isLoading" class="block">
-              <canvas baseChart
-                      [datasets]="barChartData"
-                      [labels]="barChartLabels"
-                      [options]="barChartOptions"
-                      [colors]="barChartColors"
-                      [legend]="barChartLegend"
-                      [chartType]="barChartType"
-                      (chartHover)="chartHovered($event)"
-                      (chartClick)="chartClicked($event)"></canvas>
-            </div>
+             </div>
 
-          </div>
-          <div *ngIf="!isLoading" class="text-center leftLoad">
-            <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
-          </div>
+             <div *ngIf="!isLoading" class="text-center leftLoad" >
+               <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
+             </div>
 
-        </div>
-      </div>
-      <div class="row">
-
-        <div class="col-md-6">
-
-          <div [@fadeIn]="'true'">
+           </div>
 
 
-            <h1> TEST QUERIES </h1>
-            <ul>
-              <li *ngFor="let item of userinfo | async">{{item.first_name}}
-                {{item.weight}}kg {{item.gender}}
-              </li>
-              <li *ngFor="let item of horses | async">{{item.name}}</li>
-              <li *ngFor="let item of trainings$ | async">{{item.written_text}}
-                {{item.canter.beat}}
-              </li>
-            </ul>
+         </div>
 
 
-            <div *ngIf="isLoading" class="block">
-              <canvas baseChart
-                      [datasets]="barChartData"
-                      [labels]="barChartLabels"
-                      [options]="barChartOptions"
-                      [colors]="barChartColors"
-                      [legend]="barChartLegend"
-                      [chartType]="barChartType"
-                      (chartHover)="chartHovered($event)"
-                      (chartClick)="chartClicked($event)"></canvas>
-            </div>
+         <div class="col-md-6">
 
-          </div>
-          <div *ngIf="!isLoading" class="text-center leftLoad">
-            <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
-          </div>
-
-        </div>
+           <div [@fadeIn]="'true'">
 
 
-        <div class="col-md-6">
-
-          <div [@fadeIn]="'true'">
-
-
-            <h1> TEST QUERIES </h1>
-            <ul>
-              <li *ngFor="let item of userinfo | async">{{item.first_name}}
-                {{item.weight}}kg {{item.gender}}
-              </li>
-              <li *ngFor="let item of horses | async">{{item.name}}</li>
-              <li *ngFor="let item of trainings$ | async">{{item.written_text}}
-                {{item.canter.beat}}
-              </li>
-            </ul>
+             <h1> TEST QUERIES </h1>
+             <ul>
+               <li *ngFor="let item of userinfo | async">{{item.first_name}}
+                 {{item.weight}}kg {{item.gender}}
+               </li>
+               <li *ngFor="let item of horses | async">{{item.name}}</li>
+               <li *ngFor="let item of trainings$ | async">{{item.written_text}}
+                 {{item.canter.beat}}
+               </li>
+             </ul>
 
 
-            <div *ngIf="isLoading" class="block">
-              <canvas baseChart
-                      [datasets]="barChartData"
-                      [labels]="barChartLabels"
-                      [options]="barChartOptions"
-                      [colors]="barChartColors"
-                      [legend]="barChartLegend"
-                      [chartType]="barChartType"
-                      (chartHover)="chartHovered($event)"
-                      (chartClick)="chartClicked($event)"></canvas>
-            </div>
+             <div *ngIf="isLoading" class="block">
+               <canvas baseChart
+                       [datasets]="barChartData"
+                       [labels]="barChartLabels"
+                       [options]="barChartOptions"
+                       [colors]="barChartColors"
+                       [legend]="barChartLegend"
+                       [chartType]="barChartType"
+                       (chartHover)="chartHovered($event)"
+                       (chartClick)="chartClicked($event)"></canvas>
+             </div>
 
-          </div>
-          <div *ngIf="!isLoading" class="text-center leftLoad">
-            <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
-          </div>
+           </div>
+           <div *ngIf="!isLoading" class="text-center leftLoad">
+             <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
+           </div>
 
-        </div>
-      </div>
+         </div>
+       </div>
+       <div class="row">
+
+         <div class="col-md-6">
+
+           <div [@fadeIn]="'true'">
 
 
-    </div>
-  </div>
-</div>
+             <h1> TEST QUERIES </h1>
+             <ul>
+               <li *ngFor="let item of userinfo | async">{{item.first_name}}
+                 {{item.weight}}kg {{item.gender}}
+               </li>
+               <li *ngFor="let item of horses | async">{{item.name}}</li>
+               <li *ngFor="let item of trainings$ | async">{{item.written_text}}
+                 {{item.canter.beat}}
+               </li>
+             </ul>
 
+
+             <div *ngIf="isLoading" class="block">
+               <canvas baseChart
+                       [datasets]="barChartData"
+                       [labels]="barChartLabels"
+                       [options]="barChartOptions"
+                       [colors]="barChartColors"
+                       [legend]="barChartLegend"
+                       [chartType]="barChartType"
+                       (chartHover)="chartHovered($event)"
+                       (chartClick)="chartClicked($event)"></canvas>
+             </div>
+
+           </div>
+           <div *ngIf="!isLoading" class="text-center leftLoad">
+             <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
+           </div>
+
+         </div>
+
+
+         <div class="col-md-6">
+
+           <div [@fadeIn]="'true'">
+
+
+             <h1> TEST QUERIES </h1>
+             <ul>
+               <li *ngFor="let item of userinfo | async">{{item.first_name}}
+                 {{item.weight}}kg {{item.gender}}
+               </li>
+               <li *ngFor="let item of horses | async">{{item.name}}</li>
+               <li *ngFor="let item of trainings$ | async">{{item.written_text}}
+                 {{item.canter.beat}}
+               </li>
+             </ul>
+
+
+             <div *ngIf="isLoading" class="block">
+               <canvas baseChart
+                       [datasets]="barChartData"
+                       [labels]="barChartLabels"
+                       [options]="barChartOptions"
+                       [colors]="barChartColors"
+                       [legend]="barChartLegend"
+                       [chartType]="barChartType"
+                       (chartHover)="chartHovered($event)"
+                       (chartClick)="chartClicked($event)"></canvas>
+             </div>
+
+           </div>
+           <div *ngIf="!isLoading" class="text-center leftLoad">
+             <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
+           </div>
+
+         </div>
+       </div>
+
+
+     </div>
+   </div>
+ </div>
+
+ -->
