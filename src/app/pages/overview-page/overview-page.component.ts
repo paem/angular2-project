@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AngularFire, FirebaseListObservable} from "angularfire2";
 import {slideToLeft} from "../../shared/animations/router.animations";
 import {Observable} from "rxjs";
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-overview-page',
@@ -12,13 +14,26 @@ import {Observable} from "rxjs";
 
 })
 export class OverviewPageComponent implements OnInit {
-  weekOfYear: Date = new Date();
-  today = new Date();
+
   public userKey: string;
   public user: any;
   horses: Observable<any[]>;
   horseTrainings: Observable<any[]>;
 
+
+  weekOfYear: Date = new Date();
+  // today = new Date();
+
+  Today: string = moment().format('D MMM YYYY');
+ // Sunday: any = moment().days(0).format('D MMM YYYY');
+  Monday	: any = moment().days(1).format('D MMM YYYY'); // noll = söndag, ett måndag osv...tre för Onsdag
+  Tuesday	: any = moment().days(2).format('D MMM YYYY');
+  Wednesday		: any = moment().days(3).format('D MMM YYYY');
+  Thursday	: any = moment().days(4).format('D MMM YYYY');
+  Friday	: any = moment().days(5).format('D MMM YYYY');
+  Saturday	: any = moment().days(6).format('D MMM YYYY');
+  Sunday	: any = moment().days(7).format('D MMM YYYY');
+  weekday: any = moment().weekday(1).format('W');
 
   isLoading = true;
   currentHorseTrainings = [];
@@ -39,6 +54,7 @@ export class OverviewPageComponent implements OnInit {
           this.getHorses();
         }
       });
+       moment.locale('swe');  // just nu är local satt till eng så söndag är på plats 0
   }
 
 

@@ -8,7 +8,21 @@
         <md-card>
           <md-tab-group>
             <md-tab>
+              <h3>Today is {{Today}}</h3>
 
+
+              <h4>Monday is {{Monday}}</h4>
+              <h4>Tuesday is {{Tuesday}}</h4>
+              <h4>Wednesday is {{Wednesday}}</h4>
+              <h4>Thursday is {{Thursday}}</h4>
+              <h4>Friday is {{Friday}}</h4>
+              <h4>Saturday is {{Saturday}}</h4>
+              <h4>Sunday is {{Sunday}}</h4>
+
+
+              <h3>Weekday is {{weekday}}</h3>
+
+             <!--  <p>{{weekday | date:"ww"}}</p>  -->
 
               <template class="tabColor" md-tab-label>
                 Months
@@ -18,7 +32,7 @@
                 <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}
                 </option>
               </select>
-              <p>{{weekday | date:"ww"}}</p>
+
               <hr style="border-color: lightgrey; width:100%;">
               <p *ngFor='let v of _values2'>{{ v }} </p>
             </md-tab>
