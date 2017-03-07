@@ -1,6 +1,6 @@
 .sidenav {
   height: 100%; /* 100% Full-height */
-  width: 135px; /* 0 width - change this with JavaScript */
+  width: 130px; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
@@ -121,6 +121,19 @@ ul {
 
   }
 
+  @media screen and (max-width: 750px){
+    img.horse{
+      margin-left:10px;
+      height:45px;
+    }
+    img.horseShoe{
+      margin-left:11px;
+    }
+    img.winnersCup{
+      margin-left:11px;
+  }
+
+  }
 
 
 
@@ -150,7 +163,7 @@ ul {
   }
 
   #logoutSpan {
-    margin-top:345px !important;
+    margin-top:355px !important;
     margin-left:5px !important;
 
   }
