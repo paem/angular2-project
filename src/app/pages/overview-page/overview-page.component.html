@@ -75,7 +75,7 @@
                       <div *ngIf="!isLoading" class="container-fluid" style="display:inline;">
 
                         <p style="display: inline">Gait:</p>
-                        <canvas style="display: inline;" baseChart width="150" height="70"
+                        <canvas style="display: inline;" baseChart width="100" height="70"
                                 [datasets]="[{data: [training?.trot.time, training?.walk.time, training?.canter.time], label: 'Time'}]"
                                 [labels]="barChartLabels"
                                 [options]="barChartOptions"

@@ -211,7 +211,9 @@ export class OverviewPageComponent implements OnInit {
 
 
 
-  public barChartOptions: any = { responsive: false,maintainAspectRatio:true,
+  public barChartOptions: any = {
+    responsive: false,
+    maintainAspectRatio:true,
     scaleShowHorizontalLines: false,
     scaleShowVerticalLines: false,
     animationEasing: "easeInOutElastic",
@@ -228,12 +230,14 @@ export class OverviewPageComponent implements OnInit {
         yAxes: [{
           display: false
         }]
-      }};
+
+      }
+  };
 
 
 
   public barChartLabels: string[] = ['canter', 'trot', 'walk'];
-  public barChartType: string = 'bar';
+  public barChartType: string = 'horizontalBar';
   public barChartLegend: boolean = true;
 
   public barChartColors: Array<any> = [
