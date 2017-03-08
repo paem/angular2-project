@@ -8,21 +8,9 @@
         <md-card>
           <md-tab-group>
             <md-tab>
-              <h3>Today is {{Today}}</h3>
 
 
-              <h4>Monday is {{Monday}}</h4>
-              <h4>Tuesday is {{Tuesday}}</h4>
-              <h4>Wednesday is {{Wednesday}}</h4>
-              <h4>Thursday is {{Thursday}}</h4>
-              <h4>Friday is {{Friday}}</h4>
-              <h4>Saturday is {{Saturday}}</h4>
-              <h4>Sunday is {{Sunday}}</h4>
-
-
-              <h3>Weekday is {{weekday}}</h3>
-
-             <!--  <p>{{weekday | date:"ww"}}</p>  -->
+              <!--  <p>{{weekday | date:"ww"}}</p>  -->
 
               <template class="tabColor" md-tab-label>
                 Months
@@ -50,17 +38,7 @@
                 <tr>
                   {{test}}
                   <th style="" class="rowsPadding">Horses</th>
-                  <th class="rowsPadding">W-3</th>
-                  <th class="rowsPadding">W-4</th>
-                  <th class="rowsPadding">W-5</th>
-                  <th class="rowsPadding">W-6</th>
-                  <th class="rowsPadding">W-7</th>
-                  <th class="rowsPadding">W-8</th>
-                  <th class="rowsPadding">
-                    <div class="week-number">
-                      W-{{weekOfYear | week}}
-                    </div>
-                  </th>
+                  <th *ngFor="let i of weeks" ngClass="rowsPadding">{{i.name}}</th>
                 </tr>
               </table>
               <hr style="border-color: lightgrey; width:100%;">
@@ -76,6 +54,7 @@
                 </option>
               </select>
               <p *ngFor='let v of _values2'>{{ v }} </p>
+<<<<<<< HEAD
               <table class="table table-responsive table-hover" style="width: 100%;">
                 <thead>
                 <tr>
@@ -85,11 +64,43 @@
                 </thead>
                 <tbody>
                 <tr  *ngFor="let horse of myPonnys; let i = index">
+=======
+              <table class="table-responsive" style="width: 100%;">
+
+                <!--
+                    <tr>
+                      <th style="" class="rowsPadding">Horses</th>
+                      <th class="rowsPadding">Data</th>
+                    </tr>
+
+                    <tr *ngFor="let horse of horses | async">
+
+
+                      <td style="border: 2px solid red">
+                        {{(horse.data| async)?.name}}
+                        <br>
+                        <button (click)="getTrainings(horse.data)">Click me</button>
+                      </td>
+
+
+
+                      <td *ngFor="let training of currentHorseTrainings; let i = index">
+                        Date: {{training.date}}
+                        Beat: {{training.canter.beat}}
+                      </td>
+                    </tr>
+
+              -->
+                <th style="" class="rowsPadding">Horses</th>
+                <th *ngFor="let i of days" ngClass="rowsPadding">{{i.name}}</th>
+
+>>>>>>> origin/master
 
                   <td>
                   <h4 class="rowsPadding">{{horse?.name}}</h4>
 
                   <div *ngFor="let training of horse.trainingsData; let trainingIndex = index"
+<<<<<<< HEAD
                        style="border: 2px solid black; margin-left: 20px; margin-top: 15px;">
                     <p>Date: {{training?.date}}</p><br>
                     <p>Gait: </p>  <div *ngIf="!isLoading" class="container-fluid" style="display:block;">
@@ -101,6 +112,24 @@
                              [legend]="barChartLegend"
                              [chartType]="barChartType"></canvas>
 
+=======
+                       style="border: 2px solid black; margin: 40px 0">
+                    <p>Datum: {{training?.date}}</p><br>
+                    <p>Counter Time: {{training?.canter.time}}</p><br>
+                    <p>Walk Time: {{training?.walk.time}}</p><br>
+                    <p>Trot Time: {{training?.trot.time}}</p><br>
+
+                    <div *ngIf="!isLoading" class="" style="display:block;">
+                      <h1>{{i}}</h1>
+                      <canvas baseChart width="70" height="70"
+                              [datasets]="[{data: [training?.trot.time, training?.walk.time, training?.canter.time], label: 'Time'}]"
+                              [labels]="barChartLabels"
+                              [options]="barChartOptions"
+                              [colors]="barChartColors"
+                              [legend]="barChartLegend"
+                              [chartType]="barChartType"></canvas>
+                    </div>
+>>>>>>> origin/master
 
                   </div>
                     <p>Surface: {{training?.ground}}</p><br>
