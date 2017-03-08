@@ -32,7 +32,8 @@ export class OverviewPageComponent implements OnInit {
     {id: 5, name:  moment().days(5).format('dddd')},
     {id: 6, name:  moment().days(6).format('dddd')},
     {id: 7, name:  moment().days(7).format('dddd')},
-    {id: 8, name:  'Today'} //moment().format('dddd')= Today   noll = söndag, ett måndag osv...tre för Onsdag
+    {id: 8, name:  'Today'}, //moment().format('dddd')= Today   noll = söndag, ett måndag osv...tre för Onsdag
+    {id:9, name:  'Total'}
   ];
 
   private weeks = [
@@ -42,6 +43,7 @@ export class OverviewPageComponent implements OnInit {
     {id: 4, name: 'W -' + moment().weekday(-35).format('w')},
     {id: 5, name: 'Last Week'}, //moment().weekday(-7).format('w')
     {id: 6, name: 'This Week'}, //moment().weekday(0).format('w')
+    {id: 7, name:  'Total'}
   ];
 
 
