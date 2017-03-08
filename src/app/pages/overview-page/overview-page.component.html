@@ -8,21 +8,9 @@
         <md-card>
           <md-tab-group>
             <md-tab>
-              <h3>Today is {{Today}}</h3>
 
 
-              <h4>Monday is {{Monday}}</h4>
-              <h4>Tuesday is {{Tuesday}}</h4>
-              <h4>Wednesday is {{Wednesday}}</h4>
-              <h4>Thursday is {{Thursday}}</h4>
-              <h4>Friday is {{Friday}}</h4>
-              <h4>Saturday is {{Saturday}}</h4>
-              <h4>Sunday is {{Sunday}}</h4>
-
-
-              <h3>Weekday is {{weekday}}</h3>
-
-             <!--  <p>{{weekday | date:"ww"}}</p>  -->
+              <!--  <p>{{weekday | date:"ww"}}</p>  -->
 
               <template class="tabColor" md-tab-label>
                 Months
@@ -50,17 +38,7 @@
                 <tr>
                   {{test}}
                   <th style="" class="rowsPadding">Horses</th>
-                  <th class="rowsPadding">W-3</th>
-                  <th class="rowsPadding">W-4</th>
-                  <th class="rowsPadding">W-5</th>
-                  <th class="rowsPadding">W-6</th>
-                  <th class="rowsPadding">W-7</th>
-                  <th class="rowsPadding">W-8</th>
-                  <th class="rowsPadding">
-                    <div class="week-number">
-                      W-{{weekOfYear | week}}
-                    </div>
-                  </th>
+                  <th *ngFor="let i of weeks" ngClass="rowsPadding">{{i.name}}</th>
                 </tr>
                 <tr>
                   <td style="display: flex;" class="rowsPadding" *ngFor="let horse of horses | async">
@@ -128,11 +106,9 @@
                     </tr>
 
               -->
+                <th style="" class="rowsPadding">Horses</th>
+                <th *ngFor="let i of days" ngClass="rowsPadding">{{i.name}}</th>
 
-                <tr>
-                  <th style="" class="rowsPadding">Horses</th>
-                  <th class="rowsPadding">Data</th>
-                </tr>
 
 
                 <tr *ngFor="let horse of myPonnys; let i = index">
@@ -149,7 +125,7 @@
 
                     <div *ngIf="!isLoading" class="" style="display:block;">
                       <h1>{{i}}</h1>
-                      <canvas  baseChart width="70" height="70"
+                      <canvas baseChart width="70" height="70"
                               [datasets]="[{data: [training?.trot.time, training?.walk.time, training?.canter.time], label: 'Time'}]"
                               [labels]="barChartLabels"
                               [options]="barChartOptions"

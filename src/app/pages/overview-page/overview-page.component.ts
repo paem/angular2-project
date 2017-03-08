@@ -24,16 +24,26 @@ export class OverviewPageComponent implements OnInit {
   weekOfYear: Date = new Date();
   // today = new Date();
 
-  Today: string = moment().format('D MMM YYYY');
- // Sunday: any = moment().days(0).format('D MMM YYYY');
-  Monday	: any = moment().days(1).format('D MMM YYYY'); // noll = söndag, ett måndag osv...tre för Onsdag
-  Tuesday	: any = moment().days(2).format('D MMM YYYY');
-  Wednesday		: any = moment().days(3).format('D MMM YYYY');
-  Thursday	: any = moment().days(4).format('D MMM YYYY');
-  Friday	: any = moment().days(5).format('D MMM YYYY');
-  Saturday	: any = moment().days(6).format('D MMM YYYY');
-  Sunday	: any = moment().days(7).format('D MMM YYYY');
-  weekday: any = moment().weekday(1).format('W');
+  private days = [
+    {id: 1, name:  moment().days(1).format('dddd')},
+    {id: 2, name:  moment().days(2).format('dddd')},
+    {id: 3, name:  moment().days(3).format('dddd')},
+    {id: 4, name:  moment().days(4).format('dddd')},
+    {id: 5, name:  moment().days(5).format('dddd')},
+    {id: 6, name:  moment().days(6).format('dddd')},
+    {id: 7, name:  moment().days(7).format('dddd')},
+    {id: 8, name:  'Today'} //moment().format('dddd')= Today   noll = söndag, ett måndag osv...tre för Onsdag
+  ];
+
+  private weeks = [
+    {id: 1, name: 'W -' + moment().weekday(-14).format('w')},
+    {id: 2, name: 'W -' + moment().weekday(-21).format('w')},
+    {id: 3, name: 'W -' + moment().weekday(-28).format('w')},
+    {id: 4, name: 'W -' + moment().weekday(-35).format('w')},
+    {id: 5, name: 'Last Week'}, //moment().weekday(-7).format('w')
+    {id: 6, name: 'This Week'}, //moment().weekday(0).format('w')
+  ];
+
 
   isLoading = true;
   currentHorseTrainings = [];
@@ -54,7 +64,7 @@ export class OverviewPageComponent implements OnInit {
           this.getHorses();
         }
       });
-       moment.locale('swe');  // just nu är local satt till eng så söndag är på plats 0
+      // moment.locale('se');  // just nu är local satt till eng så söndag är på plats 0
   }
 
 
@@ -119,10 +129,6 @@ export class OverviewPageComponent implements OnInit {
     this.isLoading = false;
 
   }
-
-
-
-
 
 
 
