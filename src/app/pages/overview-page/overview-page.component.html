@@ -62,37 +62,11 @@
                     </div>
                   </th>
                 </tr>
-                <tr>
-                  <td style="display: flex;" class="rowsPadding" *ngFor="let horse of horses | async">
-
-                    {{horse.$key}}
-
-
-                    <button (click)="getTrainings(horse.data)">Click me</button>
-
-
-                  </td>
-
-                  <td style="display: flex" class="rowsPadding" *ngFor="let trainings of horses | async">
-
-                    <ul>
-                      <li *ngFor="let r of horses | async">
-                        {{ (r.trainings | async)?.ground }}
-                        <ul>
-
-                        </ul>
-                      </li>
-                    </ul>
-
-                  </td>
-
-
-                </tr>
               </table>
               <hr style="border-color: lightgrey; width:100%;">
             </md-tab>
-            <md-tab>
 
+            <md-tab>
               <template md-tab-label>
                 Days
               </template>
@@ -102,65 +76,53 @@
                 </option>
               </select>
               <p *ngFor='let v of _values2'>{{ v }} </p>
-              <table class="table-responsive" style="width: 100%;">
-
-                <!--
-                    <tr>
-                      <th style="" class="rowsPadding">Horses</th>
-                      <th class="rowsPadding">Data</th>
-                    </tr>
-
-                    <tr *ngFor="let horse of horses | async">
-
-
-                      <td style="border: 2px solid red">
-                        {{(horse.data| async)?.name}}
-                        <br>
-                        <button (click)="getTrainings(horse.data)">Click me</button>
-                      </td>
-
-
-
-                      <td *ngFor="let training of currentHorseTrainings; let i = index">
-                        Date: {{training.date}}
-                        Beat: {{training.canter.beat}}
-                      </td>
-                    </tr>
-
-              -->
-
+              <table class="table table-responsive table-hover" style="width: 100%;">
+                <thead>
                 <tr>
                   <th style="" class="rowsPadding">Horses</th>
                   <th class="rowsPadding">Data</th>
                 </tr>
+                </thead>
+                <tbody>
+                <tr  *ngFor="let horse of myPonnys; let i = index">
 
-
-                <tr *ngFor="let horse of myPonnys; let i = index">
-                  <h3>{{horse?.name}}</h3>
-                  <hr>
-
+                  <td>
+                  <h4 class="rowsPadding">{{horse?.name}}</h4>
 
                   <div *ngFor="let training of horse.trainingsData; let trainingIndex = index"
-                       style="border: 2px solid black; margin: 40px 0">
-                    <p>Datum: {{training?.date}}</p><br>
-                    <p>Counter Time: {{training?.canter.time}}</p><br>
-                    <p>Walk Time: {{training?.walk.time}}</p><br>
-                    <p>Trot Time: {{training?.trot.time}}</p><br>
+                       style="border: 2px solid black; margin-left: 20px; margin-top: 15px;">
+                    <p>Date: {{training?.date}}</p><br>
+                    <p>Gait: </p>  <div *ngIf="!isLoading" class="container-fluid" style="display:block;">
+                    <canvas  baseChart width="150" height="70"
+                             [datasets]="[{data: [training?.trot.time, training?.walk.time, training?.canter.time], label: 'Time'}]"
+                             [labels]="barChartLabels"
+                             [options]="barChartOptions"
+                             [colors]="barChartColors"
+                             [legend]="barChartLegend"
+                             [chartType]="barChartType"></canvas>
 
-                    <div *ngIf="!isLoading" class="" style="display:block;">
-                      <h1>{{i}}</h1>
-                      <canvas  baseChart width="70" height="70"
-                              [datasets]="[{data: [training?.trot.time, training?.walk.time, training?.canter.time], label: 'Time'}]"
-                              [labels]="barChartLabels"
-                              [options]="barChartOptions"
-                              [colors]="barChartColors"
-                              [legend]="barChartLegend"
-                              [chartType]="barChartType"></canvas>
-                    </div>
 
                   </div>
+                    <p>Surface: {{training?.ground}}</p><br>
+                    <p>Time: {{training?.total.time}}</p><br>
+                    <p>Distance: {{training?.total.distance}}</p><br>
+                    <p>Turns: </p>
+                  <!-- Av någon anledning funkar inte [training?.turns.leftTotal, training?.turns.rightTotal] får error att det inte finns i databasen men det gör det....
+                   <div *ngIf="!isLoading" style="display: block">
+                    <canvas baseChart width="80" height="80"
+                            [datasets]="[{data: [training?.turns.leftTotal, training?.turns.rightTotal] }]"
+                            [labels]="pieChartLabels"
+                            [chartType]="pieChartType"
+                            ></canvas>
+                  </div> --><br>
+                    <p>Horse Performance: {{training?.horse_performance}}/5</p><br>
+                    <p>Rider Performance: {{training?.rider_performance}}/5</p><br>
 
+                  </div>
+                  </td>
                 </tr>
+                </tbody>
+
               </table>
               <hr style="border-color: lightgrey; width:100%;">
             </md-tab>
