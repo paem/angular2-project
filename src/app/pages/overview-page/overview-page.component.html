@@ -84,7 +84,7 @@
                                 [chartType]="barChartType"></canvas>
                       </div>
                       <p>Surface: {{training?.ground}}</p><br>
-                      <p>Time: {{training?.total.time}}</p><br>
+                      <p>Time: {{training?.total.time | secondsToTime}}</p><br>
                       <p>Distance: {{training?.total.distance}}</p><br>
                       <p>Turns: </p>
                       <!-- Av någon anledning funkar inte [training?.turns.leftTotal, training?.turns.rightTotal] får error att det inte finns i databasen men det gör det....
