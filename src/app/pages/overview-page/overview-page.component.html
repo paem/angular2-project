@@ -70,7 +70,7 @@
                     <div *ngFor="let training of horse.trainingsData; let trainingIndex = index"
 
                          style="border: 2px solid black; margin-left: 20px; margin-top: 15px;">
-                      <p>Date: {{training?.date}}</p><br>
+                      <p>Date:{{ training?.date | date:'fullDate' }}</p><br>
 
                       <div *ngIf="!isLoading" class="container-fluid" style="display:inline;">
 
