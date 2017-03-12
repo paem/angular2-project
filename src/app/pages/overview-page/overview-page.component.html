@@ -57,19 +57,19 @@
             <div class="rTable" style="width: 100%;">
               <div style="display: inline-table;" >
                 <div class="rowsPadding rTableHead">Horses</div>
-                <div *ngFor="let i of days" ngClass="rowsPadding rTableHead">{{i?.name}}</div>
+
               </div>
               <div class="rTableRow">
-              <div class="rTableCell" style="display: block" *ngFor="let horse of myPonnys; let i = index"  >
-                <h4 data-toggle="collapse" href="#collapse1"  class="rowsPadding">{{horse?.name}}</h4>
+              <div style="display: block" *ngFor="let horse of myPonnys; let i = index"  >
+
                   <div  id="collapse1" class="panel-collapse collapse" style="display: inline-flex">
 
 
-                    <div class="rTableCell" *ngFor="let training of horse.trainingsData; let trainingIndex = index"
+                    <div *ngFor="let training of horse.trainingsData; let trainingIndex = index"
 
                          style="border: 2px solid black; margin-left: 20px; margin-top: 15px;">
-                      <p>Date:{{ training?.date | date:'fullDate' }}</p><br>
-
+                      <div class="rTableHead rowsPadding">{{ training?.date | date:'EEEE' }}</div><br>
+                      <h4 data-toggle="collapse" href="#collapse1"  class="rowsPadding">{{horse?.name}}</h4>
                       <div *ngIf="!isLoading" class="container-fluid" style="display:inline;">
 
                         <p style="display: inline">Gait:</p>
