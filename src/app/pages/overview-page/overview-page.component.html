@@ -68,7 +68,7 @@
                     <div class="" *ngFor="let training of horse.trainingsData; let trainingIndex = index"
 
                          style="display: inline-flex; border: 2px solid black; margin-left: 20px; margin-top: 10px; height: 200px;">
-                      <div class="rTableHead rowsPadding">{{ training?.date | date:'EEEE' }}</div><br>
+                      <div class="rTableHead rowsPadding">{{ training?.date | date:'MMM:d,EEEE' }}</div><br>
 
                       <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;">
 

@@ -238,7 +238,7 @@ export class OverviewPageComponent implements OnInit {
 
   public barChartColors: Array<any> = [
     {
-      backgroundColor: '#ff724f',
+      backgroundColor: '#ED6C44',
       borderColor: '#000000',
       pointBackgroundColor: 'rgba(77,83,96,1)',
       pointBorderColor: '#fff',
@@ -260,6 +260,6 @@ export class OverviewPageComponent implements OnInit {
   public pieChartType: string = 'pie';
 
 
-  public pieChartColors: Array<any> = [{backgroundColor: ["#ff724f", "#00d9f9"]}];
+  public pieChartColors: Array<any> = [{backgroundColor: ["#ED6C44", "#00d9f9"]}];
 
 }
