@@ -232,7 +232,7 @@ export class OverviewPageComponent implements OnInit {
   };
 
 
-  public barChartLabels: string[] = ['canter', 'trot', 'walk'];
+  public barChartLabels: string[] = ['Canter', 'Trot', 'Walk'];
   public barChartType: string = 'horizontalBar';
   public barChartLegend: boolean = true;
 
@@ -254,9 +254,6 @@ export class OverviewPageComponent implements OnInit {
   public pieChartOptions: any = {
     responsive: true,
     animationEasing: "easeInOutElastic",
-    scaleShowLabels: true,
-
-
   };
 
   public pieChartLabels: string[] = ['Left Turns', 'Right Turns'];

@@ -54,7 +54,7 @@
             </select>
             <p *ngFor='let v of _values2'>{{ v }} </p>
 
-            <div class="rTable" style="width: 100%;">
+            <div class="rTable" style="width: 300px;">
               <div style="display: inline-table;" >
                 <div class="rowsPadding rTableHead">Horses</div>
 
@@ -67,14 +67,14 @@
 
                     <div class="" *ngFor="let training of horse.trainingsData; let trainingIndex = index"
 
-                         style="border: 2px solid black; margin-left: 20px; margin-top: 15px;">
+                         style="display: inline-flex; border: 2px solid black; margin-left: 20px; margin-top: 10px; height: 200px;">
                       <div class="rTableHead rowsPadding">{{ training?.date | date:'EEEE' }}</div><br>
 
-                      <div *ngIf="!isLoading" class="container-fluid" style="display:inline;">
+                      <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;">
 
-                        <p style="display: inline">Gait:</p>
+                        <p style="display: inline; ">Gait:</p>
                         <canvas style="display: inline;" baseChart width="100" height="70"
-                                [datasets]="[{data: [training?.trot?.time, training?.walk?.time, training?.canter?.time], label: 'Time'}]"
+                                [datasets]="[{data: [training?.canter?.time/60, training?.trot?.time/60, training?.walk?.time/60], label: 'Time'}]"
                                 [labels]="barChartLabels"
                                 [options]="barChartOptions"
                                 [colors]="barChartColors"
@@ -85,10 +85,10 @@
                       <p>Time: {{training?.total.time | secondsToTime}}</p><br>
                       <p>Distance: {{training?.total.distance | distance}}</p><br>
 
-                       <div *ngIf="!isLoading" class="container-fluid" style="">
+                       <div *ngIf="!isLoading" class="container-fluid" style="margin-top: 5px;">
                        <p style="display: inline">Turns: </p>
-                        <canvas style="display: inline;" baseChart width="70" height="40"
-                                [datasets]="[{data: [training?.turns?.leftTotal, training?.turns?.rightTotal]}]"
+                        <canvas style="" baseChart width="30" height="10"
+                                [datasets]="[{data: [training?.turns?.leftTotal, training?.turns?.rightTotal],label: ['Left Turns', 'Right Turns']}]"
                                 [labels]="pieChartLabels"
                                 [options]="pieChartOptions"
                                 [colors]="pieChartColors"
