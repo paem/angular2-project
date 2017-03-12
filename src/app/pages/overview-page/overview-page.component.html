@@ -34,13 +34,12 @@
               </option>
             </select>
             <p *ngFor='let v of _values2'>{{ v }} </p>
-            <table class="table-responsive" style="width:100%;">
-              <tr>
-                {{test}}
-                <th style="" class="rowsPadding">Horses</th>
-                <th *ngFor="let i of weeks" ngClass="rowsPadding">{{i?.name}}</th>
-              </tr>
-            </table>
+            <div class="rTable" style="width:100%;">
+              <div class="rTableRow">
+                <div class="rowsPadding rTableHead">Horses</div>
+                <div *ngFor="let i of weeks" ngClass="rowsPadding rTableHead">{{i?.name}}</div>
+              </div>
+            </div>
             <hr style="border-color: lightgrey; width:100%;">
           </md-tab>
 
@@ -55,19 +54,17 @@
             </select>
             <p *ngFor='let v of _values2'>{{ v }} </p>
 
-            <table class="table table-responsive table-hover" style="width: 100%;">
-              <thead>
-              <tr>
-                <th style="" class="rowsPadding">Horses</th>
-                <th *ngFor="let i of days" ngClass="rowsPadding">{{i?.name}}</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let horse of myPonnys; let i = index">
-                  <td style="display: inline-flex">
+            <div class="rTable" style="width: 100%;">
+              <div style="display: inline-table;" >
+                <div class="rowsPadding rTableHead">Horses</div>
+                <div *ngFor="let i of days" ngClass="rowsPadding rTableHead">{{i?.name}}</div>
+              </div>
+              <div class="rTableRow">
+              <div class="rTableCell" style="display: block"*ngFor="let horse of myPonnys; let i = index">
+                  <div style="display: inline-flex">
                     <h4 class="rowsPadding">{{horse?.name}}</h4>
 
-                    <div *ngFor="let training of horse.trainingsData; let trainingIndex = index"
+                    <div class="rTableCell"  *ngFor="let training of horse.trainingsData; let trainingIndex = index"
 
                          style="border: 2px solid black; margin-left: 20px; margin-top: 15px;">
                       <p>Date:{{ training?.date | date:'fullDate' }}</p><br>
@@ -99,11 +96,11 @@
                       <p>Rider Performance: {{training?.rider_performance}}/5</p><br>
 
                     </div>
-                  </td>
-                  </tr>
-                  </tbody>
+                  </div>
+                  </div>
+                  </div>
 
-                </table>
+                </div>
 
                 <hr style="border-color: lightgrey; width:100%;">
 
