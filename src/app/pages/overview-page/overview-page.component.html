@@ -61,7 +61,7 @@
               </div>
               <div class="rTableRow">
               <div style="display: block" *ngFor="let horse of myPonnys; let i = index"  >
-
+                <h4 data-toggle="collapse" href="#collapse1"  class="rowsPadding">{{horse?.name}}</h4>
                   <div  id="collapse1" class="panel-collapse collapse" style="display: inline-flex">
 
 
@@ -69,7 +69,7 @@
 
                          style="border: 2px solid black; margin-left: 20px; margin-top: 15px;">
                       <div class="rTableHead rowsPadding">{{ training?.date | date:'EEEE' }}</div><br>
-                      <h4 data-toggle="collapse" href="#collapse1"  class="rowsPadding">{{horse?.name}}</h4>
+
                       <div *ngIf="!isLoading" class="container-fluid" style="display:inline;">
 
                         <p style="display: inline">Gait:</p>
