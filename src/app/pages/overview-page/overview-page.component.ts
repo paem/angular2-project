@@ -25,15 +25,15 @@ export class OverviewPageComponent implements OnInit {
   // today = new Date();
 
   private days = [
-    {id: 1, name:  moment().days(1).format('dddd')},
-    {id: 2, name:  moment().days(2).format('dddd')},
-    {id: 3, name:  moment().days(3).format('dddd')},
-    {id: 4, name:  moment().days(4).format('dddd')},
-    {id: 5, name:  moment().days(5).format('dddd')},
-    {id: 6, name:  moment().days(6).format('dddd')},
-    {id: 7, name:  moment().days(7).format('dddd')},
-    {id: 8, name:  'Today'}, //moment().format('dddd')= Today   noll = söndag, ett måndag osv...tre för Onsdag
-    {id:9, name:  'Total'}
+    {id: 1, name: moment().days(1).format('dddd')},
+    {id: 2, name: moment().days(2).format('dddd')},
+    {id: 3, name: moment().days(3).format('dddd')},
+    {id: 4, name: moment().days(4).format('dddd')},
+    {id: 5, name: moment().days(5).format('dddd')},
+    {id: 6, name: moment().days(6).format('dddd')},
+    {id: 7, name: moment().days(7).format('dddd')},
+    {id: 8, name: 'Today'}, //moment().format('dddd')= Today   noll = söndag, ett måndag osv...tre för Onsdag
+    {id: 9, name: 'Total'}
   ];
 
   private weeks = [
@@ -43,7 +43,7 @@ export class OverviewPageComponent implements OnInit {
     {id: 4, name: 'W -' + moment().weekday(-35).format('w')},
     {id: 5, name: 'Last Week'}, //moment().weekday(-7).format('w')
     {id: 6, name: 'This Week'}, //moment().weekday(0).format('w')
-    {id: 7, name:  'Total'}
+    {id: 7, name: 'Total'}
   ];
 
 
@@ -67,7 +67,7 @@ export class OverviewPageComponent implements OnInit {
 
         }
       });
-      // moment.locale('se');  // just nu är local satt till eng så söndag är på plats 0
+    // moment.locale('se');  // just nu är local satt till eng så söndag är på plats 0
   }
 
 
@@ -134,7 +134,6 @@ export class OverviewPageComponent implements OnInit {
   }
 
 
-
   /*
 
    this.currentHorseTrainings.push(training);
@@ -144,23 +143,20 @@ export class OverviewPageComponent implements OnInit {
 
    */
 
-/*
-  convertMMSS(){
+  /*
+   convertMMSS(){
 
-    let totalNumberOfSeconds = value;
-    let hours = parseInt( totalNumberOfSeconds / 3600 );
-    let minutes = parseInt( (totalNumberOfSeconds - (hours * 3600)) / 60 );
-    let seconds = Math.floor((totalNumberOfSeconds - ((hours * 3600) + (minutes * 60))));
-    let result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
-    console.log(result);
-    return result;
-
-
-}
-*/
+   let totalNumberOfSeconds = value;
+   let hours = parseInt( totalNumberOfSeconds / 3600 );
+   let minutes = parseInt( (totalNumberOfSeconds - (hours * 3600)) / 60 );
+   let seconds = Math.floor((totalNumberOfSeconds - ((hours * 3600) + (minutes * 60))));
+   let result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
+   console.log(result);
+   return result;
 
 
-
+   }
+   */
 
 
   private list = [
@@ -213,32 +209,27 @@ export class OverviewPageComponent implements OnInit {
   }
 
 
-
-
-
   public barChartOptions: any = {
     responsive: false,
-    maintainAspectRatio:true,
+    maintainAspectRatio: true,
     scaleShowHorizontalLines: false,
     scaleShowVerticalLines: false,
     animationEasing: "easeInOutElastic",
-    scaleShowLabels : false,
-    legend: { display: false },
+    scaleShowLabels: false,
+    legend: {display: false},
     layout: {
       padding: 5
     },
-    scales:
-      {
-        xAxes: [{
-          display: false
-        }],
-        yAxes: [{
-          display: false
-        }]
+    scales: {
+      xAxes: [{
+        display: false
+      }],
+      yAxes: [{
+        display: false
+      }]
 
-      }
+    }
   };
-
 
 
   public barChartLabels: string[] = ['canter', 'trot', 'walk'];
@@ -259,8 +250,19 @@ export class OverviewPageComponent implements OnInit {
 
   ];
 
-  public pieChartLabels:string[] = ['Left Turns','Right Turns' ];
-  public pieChartType:string = 'pie';
+
+  public pieChartOptions: any = {
+    responsive: true,
+    animationEasing: "easeInOutElastic",
+    scaleShowLabels: true,
+
+
+  };
+
+  public pieChartLabels: string[] = ['Left Turns', 'Right Turns'];
+  public pieChartType: string = 'pie';
+
+
+  public pieChartColors: Array<any> = [{backgroundColor: ["#ff724f", "#00d9f9"]}];
 
 }
-
