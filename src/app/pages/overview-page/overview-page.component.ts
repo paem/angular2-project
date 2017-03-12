@@ -262,13 +262,5 @@ export class OverviewPageComponent implements OnInit {
   public pieChartLabels:string[] = ['Left Turns','Right Turns' ];
   public pieChartType:string = 'pie';
 
-  // events
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
-
-  public chartHovered(e:any):void {
-    console.log(e);
-  }
 }
 

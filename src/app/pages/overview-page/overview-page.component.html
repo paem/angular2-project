@@ -60,11 +60,12 @@
                 <div *ngFor="let i of days" ngClass="rowsPadding rTableHead">{{i?.name}}</div>
               </div>
               <div class="rTableRow">
-              <div class="rTableCell" style="display: block"*ngFor="let horse of myPonnys; let i = index">
-                  <div style="display: inline-flex">
-                    <h4 class="rowsPadding">{{horse?.name}}</h4>
+              <div class="rTableCell" style="display: block" *ngFor="let horse of myPonnys; let i = index"  >
+                <h4 data-toggle="collapse" href="#collapse1"  class="rowsPadding">{{horse?.name}}</h4>
+                  <div  id="collapse1" class="panel-collapse collapse" style="display: inline-flex">
 
-                    <div class="rTableCell"  *ngFor="let training of horse.trainingsData; let trainingIndex = index"
+
+                    <div class="rTableCell" *ngFor="let training of horse.trainingsData; let trainingIndex = index"
 
                          style="border: 2px solid black; margin-left: 20px; margin-top: 15px;">
                       <p>Date:{{ training?.date | date:'fullDate' }}</p><br>
@@ -83,15 +84,16 @@
                       <p>Surface: {{training?.ground}}</p><br>
                       <p>Time: {{training?.total.time | secondsToTime}}</p><br>
                       <p>Distance: {{training?.total.distance | distance}}</p><br>
-                      <p>Turns: </p>
+
                       <!-- Av någon anledning funkar inte [training?.turns.leftTotal, training?.turns.rightTotal] får error att det inte finns i databasen men det gör det....
-                       <div *ngIf="!isLoading" style="display: block">
-                        <canvas baseChart width="80" height="80"
-                                [datasets]="[{data: [training?.turns.leftTotal, training?.turns.rightTotal] }]"
+                       <div *ngIf="!isLoading" class="container-fluid" style="display:inline;">
+                       <p style="display: inline">Turns: </p>
+                        <canvas style="display: inline;" baseChart width="80" height="80"
+                                [data]="[{data: [training?.turns.leftTotal, training?.turns.rightTotal], label: 'Turns' }]"
                                 [labels]="pieChartLabels"
                                 [chartType]="pieChartType"
                                 ></canvas>
-                      </div> --><br>
+                      </div>--><br>
                       <p>Horse Performance: {{training?.horse_performance}}/5</p><br>
                       <p>Rider Performance: {{training?.rider_performance}}/5</p><br>
 
