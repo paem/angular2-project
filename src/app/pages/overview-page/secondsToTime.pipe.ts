@@ -3,10 +3,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class secondsToTimePipe implements PipeTransform {
 
   times = {
-    year: 31557600,
-    month: 2629746,
-    day: 86400,
-    hour: 3600,
     minute: 60,
     second: 1
   }

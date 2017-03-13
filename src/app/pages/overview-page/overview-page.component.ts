@@ -218,7 +218,7 @@ export class OverviewPageComponent implements OnInit {
     scaleShowLabels: false,
     legend: {display: false},
     layout: {
-      padding: 5
+      padding: 0
     },
     scales: {
       xAxes: [{
@@ -227,8 +227,14 @@ export class OverviewPageComponent implements OnInit {
       yAxes: [{
         display: false
       }]
-
+    },
+    tooltips:{
+      xPadding:0,
+      yPadding:0,
+      cornerRadius:8,
+      position:'nearest',
     }
+
   };
 
 
@@ -254,6 +260,14 @@ export class OverviewPageComponent implements OnInit {
   public pieChartOptions: any = {
     responsive: true,
     animationEasing: "easeInOutElastic",
+    legend: {display: false},
+    tooltipEvents: [],
+    showTooltips: true,
+    tooltipCaretSize: 0,
+    onAnimationComplete: function () {
+      this.showTooltip(this.segments, true);
+    },
+
   };
 
   public pieChartLabels: string[] = ['Left Turns', 'Right Turns'];
