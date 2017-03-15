@@ -23,7 +23,7 @@ export class OverviewPageComponent implements OnInit {
 
   weekOfYear: Date = new Date();
   // today = new Date();
-
+  num: number= 0;
   private days = [
     {id: 1, name: moment().days(1).format('dddd')},
     {id: 2, name: moment().days(2).format('dddd')},
@@ -168,46 +168,6 @@ export class OverviewPageComponent implements OnInit {
     {id: 6, name: 'Turns'},
     {id: 7, name: 'Performance'}
   ];
-  private _values2 = [];
-  private current: number = 1;
-  private log: string = '';
-
-  private logDropdown(id: number): void {
-    const NAME = this.list.find((item: any) => item.id == id).name;
-    // this.log += `Value ${NAME} was selected\n`
-  }
-
-  selectedFromList(name: any) {
-
-    const obj = this.list[name];
-    console.log(name, obj);
-    if (!obj) return;
-    if (obj.id == 1) {
-      this._values2 = ['Array', 'från', 'Basis'];
-    }
-    else if (obj.id == 2) {
-      this._values2 = ['Array', 'från', 'Gait'];
-    }
-    else if (obj.id == 3) {
-      this._values2 = ['Array', 'från', 'Time'];
-    }
-    else if (obj.id == 4) {
-      this._values2 = ['Array', 'från', 'Distance'];
-    }
-    else if (obj.id == 5) {
-      this._values2 = ['Array', 'från', 'Rider'];
-    }
-    else if (obj.id == 6) {
-      this._values2 = ['Array', 'från', 'Turns'];
-    }
-    else if (obj.id == 7) {
-      this._values2 = ['Array', 'från', 'Performance'];
-    }
-    else {
-      this._values2 = [];
-    }
-  }
-
 
   public barChartOptions: any = {
     responsive: false,
