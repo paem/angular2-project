@@ -169,6 +169,47 @@ export class OverviewPageComponent implements OnInit {
     {id: 7, name: 'Performance'}
   ];
 
+  private _values2 = [];
+  private current: number = 1;
+  private log: string = '';
+
+  private logDropdown(id: number): void {
+    const NAME = this.list.find((item: any) => item.id == id).name;
+    // this.log += `Value ${NAME} was selected\n`
+  }
+
+  selectedFromList(name: any) {
+
+    const obj = this.list[name];
+    console.log(name, obj);
+    if (!obj) return;
+    if (obj.id == 1) {
+
+    }
+    else if (obj.id == 2) {
+
+    }
+    else if (obj.id == 3) {
+
+    }
+    else if (obj.id == 4) {
+
+    }
+    else if (obj.id == 5) {
+
+    }
+    else if (obj.id == 6) {
+
+    }
+    else if (obj.id == 7) {
+
+    }
+    else {
+      this._values2 = [];
+    }
+  }
+
+
   public barChartOptions: any = {
     responsive: false,
     maintainAspectRatio: true,
