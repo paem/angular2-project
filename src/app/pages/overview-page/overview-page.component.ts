@@ -231,7 +231,7 @@ export class OverviewPageComponent implements OnInit {
     tooltips:{
       xPadding:0,
       yPadding:0,
-      cornerRadius:8,
+      cornerRadius:2,
       position:'nearest',
     }
 
