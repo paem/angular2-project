@@ -4,11 +4,19 @@
   <div class="wrapper">
 
     <div id="page-wrapper" [@slideToLeft]="'true'">
-
+      <div [ngSwitch]="current">
+        <div *ngSwitchCase="'1'">Basis</div>
+        <div *ngSwitchCase="'2'">Gait</div>
+        <div *ngSwitchCase="'3'">Time</div>
+        <div *ngSwitchCase="'4'">Distance</div>
+        <div *ngSwitchCase="'5'">Rider</div>
+        <div *ngSwitchCase="'6'">Turns</div>
+        <div *ngSwitchCase="'7'">Preformance</div>
+        <div *ngSwitchDefault>This is Default</div>
+      </div>
       <md-card>
         <md-tab-group>
           <md-tab>
-
 
             <!--  <p>{{weekday | date:"ww"}}</p>  -->
 
@@ -20,6 +28,7 @@
               <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}
               </option>
             </select>
+
 
             <hr style="border-color: lightgrey; width:100%;">
             <p *ngFor='let v of _values2'>{{ v }} </p>
