@@ -146,7 +146,7 @@ export class OverviewPageComponent implements OnInit {
 
 
   private list = [
-    {id: 1, name: 'Basis'},
+    {id: 1, name: 'Surface'},
     {id: 2, name: 'Gait'},
     {id: 3, name: 'Time'},
     {id: 4, name: 'Distance'},
@@ -170,31 +170,23 @@ export class OverviewPageComponent implements OnInit {
     console.log(name, obj);
     if (!obj) return;
     if (obj.id == 1) {
-
     }
     else if (obj.id == 2) {
-
     }
     else if (obj.id == 3) {
-
     }
     else if (obj.id == 4) {
-
     }
     else if (obj.id == 5) {
-
     }
     else if (obj.id == 6) {
-
     }
     else if (obj.id == 7) {
-
     }
     else {
       this._values2 = [];
     }
   }
-
 
   public barChartOptions: any = {
     responsive: false,
