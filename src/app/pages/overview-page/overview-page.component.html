@@ -45,7 +45,7 @@
                   <h4 [attr.data-target]="'#'+i" data-toggle="collapse"  class="rowsPadding">{{horse?.name}}</h4>
                   <div class="collapse" [attr.id]="i" style="">
 
-                    <div class="" *ngFor="let training of horse.trainingsData; let trainingIndex = index"
+                    <div class="" *ngFor="let training of horse?.trainingsData; let trainingIndex = index"
 
                          style="display: inline-flex; border: 1px solid black; margin-left: 20px; margin-top: 10px; width: 1100px;">
                       <div class="rTableHead rowsPadding">{{ training?.date | date:'MMM:d,EEEE' }}</div><br>
@@ -53,7 +53,7 @@
                       <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;">
 
                         <p  style="display: inline; ">Gait:</p>
-                        <canvas style="display: inline; padding:24px;" baseChart width="100" height="70"
+                        <canvas style="display: inline;" baseChart width="100" height="70"
                                 [datasets]="[{data: [training?.canter?.time.toFixed(1), training?.trot?.time.toFixed(1), training?.walk?.time.toFixed(1)]}]"
                                 [labels]="barChartLabels"
                                 [options]="barChartOptions"
@@ -71,9 +71,9 @@
                         <p>Distance: {{training?.total.distance | distance}}</p><br>
                       </div>
                       <div *ngSwitchCase="'6'">
-                      <div *ngIf="!isLoading" class="container-fluid" style="margin-top: 5px;">
+                      <div *ngIf="!isLoading" class="container-fluid">
                         <p style="display: inline">Turns: </p>
-                        <canvas style="" baseChart width="30" height="10"
+                        <canvas style="" baseChart width="150" height="75"
                                 [datasets]="[{data: [training?.turns?.leftTotal, training?.turns?.rightTotal],label: ['Left Turns', 'Right Turns']}]"
                                 [labels]="pieChartLabels"
                                 [options]="pieChartOptions"
@@ -119,10 +119,12 @@
                 <h4  [attr.data-target]="'#'+i" data-toggle=  class="rowsPadding">{{horse?.name}}</h4>
                   <div class="collapse" [attr.id]="i" style="">
 
-                    <div class="" *ngFor="let training of horse.trainingsData; let trainingIndex = index" style="display: inline-flex; border: 1px solid black; margin-left: 20px; margin-top: 10px;">
+                    <div class="" *ngFor="let training of horse?.trainingsData; let trainingIndex = index" style="display: inline-flex;  margin-left: 20px; ;
+  margin-right: auto ; width: 100%; border: 1px solid black; margin-top: 10px;">
 
                       <p>{{ training?.date | date:'MMM:d,EEEE' }}</p><br>
 
+<<<<<<< HEAD
                       <div *ngSwitchCase="'0'">
                         <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;" >
 
@@ -138,6 +140,9 @@
 
 
                       <div *ngSwitchCase="'2'">
+=======
+                      <div *ngSwitchCase="'2'" >
+>>>>>>> 58a69532a08849d2fbf01926d0bfac0a5f86932b
                       <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;" >
 
                         <p>Gait:</p>
@@ -183,7 +188,7 @@
                       <div *ngSwitchCase="'6'">
                        <div *ngIf="!isLoading" class="container-fluid" style="margin-top: 5px;">
                        <p style="display: inline">Turns: </p>
-                        <canvas style="" baseChart width="30" height="10"
+                        <canvas style="" baseChart width="150" height="75"
 
                                 [datasets]="[{data: [training?.turns?.leftTotal, training?.turns?.rightTotal],label: ['Left Turns', 'Right Turns']}]"
                                 [labels]="pieChartLabels"
