@@ -116,7 +116,7 @@
               </div>
               <div class="rTableRow">
               <div style="display: block" *ngFor="let horse of myPonnys; let i = index"  >
-                <h4  [attr.data-target]="'#'+i" data-toggle=  class="rowsPadding">{{horse?.name}}</h4>
+                <h4  [attr.data-target]="'#'+i" data-toggle="collapse"  class="rowsPadding">{{horse?.name}}</h4>
                   <div class="collapse" [attr.id]="i" style="">
 
                     <div class="" *ngFor="let training of horse?.trainingsData; let trainingIndex = index" style="display: inline-flex;  margin-left: 20px; ;
@@ -124,6 +124,7 @@
 
                       <p>{{ training?.date | date:'MMM:d,EEEE' }}</p><br>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
                       <div *ngSwitchCase="'0'">
                         <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;" >
@@ -143,6 +144,12 @@
 =======
                       <div *ngSwitchCase="'2'" >
 >>>>>>> 58a69532a08849d2fbf01926d0bfac0a5f86932b
+=======
+
+
+
+                      <div *ngSwitchCase="'2'" >
+>>>>>>> parent of c0f1bb8... lite dubblekod
                       <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;" >
 
                         <p>Gait:</p>
@@ -154,15 +161,7 @@
                                 [chartType]="barChartType"></canvas>
                       </div>
                       </div>
-                      <div *ngSwitchCase="'0'">
-                        <p> Surface: {{training?.ground}}</p><br>
-                      </div>
-                      <div *ngSwitchCase="'0'">
-                        <p>Time: {{training?.total.time | secondsToTime}}</p><br>
-                      </div>
-                      <div *ngSwitchCase="'0'">
-                        <p>Distance: {{training?.total.distance | distance}}</p><br>
-                      </div>
+
                       <div *ngSwitchCase="'1'">
                         <p> Surface: {{training?.ground}}</p><br>
                       </div>
@@ -172,19 +171,6 @@
                       <div *ngSwitchCase="'4'">
                         <p>Distance: {{training?.total.distance | distance}}</p><br>
                       </div>
-                      <div *ngSwitchCase="'0'">
-                        <div *ngIf="!isLoading" class="container-fluid" style="margin-top: 5px;">
-                          <p style="display: inline">Turns: </p>
-                          <canvas style="" baseChart width="30" height="10"
-
-                                  [datasets]="[{data: [training?.turns?.leftTotal, training?.turns?.rightTotal],label: ['Left Turns', 'Right Turns']}]"
-                                  [labels]="pieChartLabels"
-                                  [options]="pieChartOptions"
-                                  [colors]="pieChartColors"
-                                  [chartType]="pieChartType"
-                          ></canvas>
-                        </div>
-                      </div><br>
                       <div *ngSwitchCase="'6'">
                        <div *ngIf="!isLoading" class="container-fluid" style="margin-top: 5px;">
                        <p style="display: inline">Turns: </p>
@@ -198,18 +184,12 @@
                                 ></canvas>
                       </div>
                       </div><br>
-                      <div *ngSwitchCase="'0'">
-                        <p>Horse Performance: {{training?.horse_performance}}/5</p>
-                      </div><br>
-                     <div *ngSwitchCase="'0'">
-                       <p >Rider Performance: {{training?.rider_performance}}/5</p><br>
-                     </div>
                       <div *ngSwitchCase="'7'">
                         <p>Horse Performance: {{training?.horse_performance}}/5</p>
                       </div><br>
-                      <div *ngSwitchCase="'5'">
-                        <p >Rider Performance: {{training?.rider_performance}}/5</p><br>
-                      </div>
+                     <div *ngSwitchCase="'5'">
+                       <p >Rider Performance: {{training?.rider_performance}}/5</p><br>
+                     </div>
                     </div>
                   </div>
                   </div>
