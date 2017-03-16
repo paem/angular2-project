@@ -19,6 +19,7 @@
 p{
   padding: 5px;
   color:grey;
+  display: inline-flex;
 }
 
 h4:hover{
@@ -26,6 +27,11 @@ h4:hover{
   color: #ED6C44 ;
 }
 
+
+h4{
+  font-size:17px;
+
+}
 
 select {
   border-color: #FFFFFF;
@@ -57,16 +63,3 @@ select {
 .rTableFoot { display: table-footer-group; }
 .rTableCell, .rTableHead { display: table-cell; }
 
-//funkar ej waaaaat
-.mat-ripple{
-  background-color: #ED6C44 !important;
-}
-.mat-tab-label{
-  background-color: #ED6C44 !important;
-}
-.mat-card{
-
-}
-label{
-  background-color: green;
-}
