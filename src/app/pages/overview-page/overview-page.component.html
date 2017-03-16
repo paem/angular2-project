@@ -124,11 +124,10 @@
                       <p>{{ training?.date | date:'MMM:d,EEEE' }}</p><br>
 
 
-                      <div *ngIf="!isLoading" class="container-fluid" style="display:inline;">
+
 
                       <div *ngSwitchCase="'2'" >
                       <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;" >
-
 
                         <p>Gait:</p>
                         <canvas style="display: inline-flex;" baseChart width="100" height="70"
@@ -138,22 +137,8 @@
                                 [colors]="barChartColors"
                                 [chartType]="barChartType"></canvas>
                       </div>
-
-                      <p>Surface: {{training?.ground}}</p><br>
-                      <p>Time: {{training?.total.time | secondsToTime}}</p><br>
-                      <p>Distance: {{training?.total.distance | distance}}</p><br>
-
-                       <div *ngIf="!isLoading" class="container-fluid" style="">
-                       <p style="display: inline-flex;">Turns: </p>
-                         <canvas style="" baseChart width="30" height="10"
-
-                                 [datasets]="[{data: [training?.turns?.leftTotal, training?.turns?.rightTotal],label: ['Left Turns', 'Right Turns']}]"
-                                 [labels]="pieChartLabels"
-                                 [options]="pieChartOptions"
-                                 [colors]="pieChartColors"
-                                 [chartType]="pieChartType"
-                         ></canvas>
                       </div>
+
                       <div *ngSwitchCase="'1'">
                         <p> Surface: {{training?.ground}}</p><br>
                       </div>
@@ -177,9 +162,10 @@
                       </div>
                       </div><br>
                       <div *ngSwitchCase="'7'">
-                      <p>Horse Performance: {{training?.horse_performance}}/5</p></div><br>
+                        <p>Horse Performance: {{training?.horse_performance}}/5</p>
+                      </div><br>
                      <div *ngSwitchCase="'5'">
-                      <p >Rider Performance: {{training?.rider_performance}}/5</p><br>
+                       <p >Rider Performance: {{training?.rider_performance}}/5</p><br>
                      </div>
                     </div>
                   </div>
