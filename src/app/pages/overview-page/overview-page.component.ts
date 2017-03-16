@@ -146,6 +146,7 @@ export class OverviewPageComponent implements OnInit {
 
 
   private list = [
+    {id: 0, name: 'Overview'},
     {id: 1, name: 'Surface'},
     {id: 2, name: 'Gait'},
     {id: 3, name: 'Time'},
@@ -169,7 +170,9 @@ export class OverviewPageComponent implements OnInit {
     const obj = this.list[name];
     console.log(name, obj);
     if (!obj) return;
-    if (obj.id == 1) {
+    if (obj.id == 0){
+    }
+    else if (obj.id == 1) {
     }
     else if (obj.id == 2) {
     }
