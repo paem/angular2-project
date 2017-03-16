@@ -3,17 +3,8 @@
 <div class="container">
   <div class="wrapper">
 
-    <div id="page-wrapper" [@slideToLeft]="'true'">
-      <div [ngSwitch]="current">
-        <div *ngSwitchCase="'1'">Basis</div>
-        <div *ngSwitchCase="'2'">Gait</div>
-        <div *ngSwitchCase="'3'">Time</div>
-        <div *ngSwitchCase="'4'">Distance</div>
-        <div *ngSwitchCase="'5'">Rider</div>
-        <div *ngSwitchCase="'6'">Turns</div>
-        <div *ngSwitchCase="'7'">Preformance</div>
-        <div *ngSwitchDefault>This is Default</div>
-      </div>
+    <div [ngSwitch]="current" id="page-wrapper" [@slideToLeft]="'true'">
+
       <md-card>
         <md-tab-group>
           <md-tab>
@@ -42,7 +33,7 @@
               <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}
               </option>
             </select>
-            <p *ngFor='let v of _values2'>{{ v }} </p>
+
             <div class="rTable" style="width: 100%; height: 170px;">
               <div class="rTableRow">
 
@@ -58,10 +49,10 @@
 
                          style="display: inline-flex; border: 1px solid black; margin-left: 20px; margin-top: 10px; width: 1100px;">
                       <div class="rTableHead rowsPadding">{{ training?.date | date:'MMM:d,EEEE' }}</div><br>
-
+                      <div *ngSwitchCase="'2'" >
                       <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;">
 
-                        <p style="display: inline; ">Gait:</p>
+                        <p  style="display: inline; ">Gait:</p>
                         <canvas style="display: inline; padding:24px;" baseChart width="100" height="70"
                                 [datasets]="[{data: [training?.canter?.time.toFixed(1), training?.trot?.time.toFixed(1), training?.walk?.time.toFixed(1)]}]"
                                 [labels]="barChartLabels"
@@ -69,10 +60,17 @@
                                 [colors]="barChartColors"
                                 [chartType]="barChartType"></canvas>
                       </div>
-                      <p>Surface: {{training?.ground}}</p><br>
-                      <p>Time: {{training?.total.time | secondsToTime}}</p><br>
-                      <p>Distance: {{training?.total.distance | distance}}</p><br>
-
+                      </div>
+                      <div *ngSwitchCase="'1'">
+                        <p >Surface: {{training?.ground}}</p><br>
+                      </div>
+                      <div *ngSwitchCase="'3'">
+                        <p>Time: {{training?.total.time | secondsToTime}}</p><br>
+                      </div>
+                      <div *ngSwitchCase="'4'">
+                        <p>Distance: {{training?.total.distance | distance}}</p><br>
+                      </div>
+                      <div *ngSwitchCase="'6'">
                       <div *ngIf="!isLoading" class="container-fluid" style="margin-top: 5px;">
                         <p style="display: inline">Turns: </p>
                         <canvas style="" baseChart width="30" height="10"
@@ -82,9 +80,13 @@
                                 [colors]="pieChartColors"
                                 [chartType]="pieChartType"
                         ></canvas>
+                      </div></div><br>
+                      <div *ngSwitchCase="'7'">
+                      <p>Horse Performance: {{training?.horse_performance}}/5</p>
                       </div><br>
-                      <p>Horse Performance: {{training?.horse_performance}}/5</p><br>
-                      <p>Rider Performance: {{training?.rider_performance}}/5</p><br>
+                      <div *ngSwitchCase="'5'">
+                        <p>Rider Performance: {{training?.rider_performance}}/5</p><br>
+                      </div>
 
                     </div>
                   </div>
@@ -105,7 +107,7 @@
               <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}
               </option>
             </select>
-            <p *ngFor='let v of _values2'>{{ v }} </p>
+
 
             <div class="rTable" style="width: 320px; height: 170px;">
               <div style="display: inline-table;" >
@@ -122,7 +124,8 @@
                          style="display: inline-flex; border: 1px solid black; margin-left: 20px; margin-top: 10px;">
                       <div class="rTableHead rowsPadding">{{ training?.date | date:'MMM:d,EEEE' }}</div><br>
 
-                      <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;">
+                      <div *ngSwitchCase="'2'" >
+                      <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;" >
 
                         <p style="display: inline; ">Gait:</p>
                         <canvas style="display: inline; padding:24px;" baseChart width="100" height="70"
@@ -132,10 +135,17 @@
                                 [colors]="barChartColors"
                                 [chartType]="barChartType"></canvas>
                       </div>
-                      <p>Surface: {{training?.ground}}</p><br>
-                      <p>Time: {{training?.total.time | secondsToTime}}</p><br>
-                      <p>Distance: {{training?.total.distance | distance}}</p><br>
-
+                      </div>
+                      <div *ngSwitchCase="'1'">
+                        <p> Surface: {{training?.ground}}</p><br>
+                      </div>
+                      <div *ngSwitchCase="'3'">
+                        <p>Time: {{training?.total.time | secondsToTime}}</p><br>
+                      </div>
+                      <div *ngSwitchCase="'4'">
+                        <p>Distance: {{training?.total.distance | distance}}</p><br>
+                      </div>
+                      <div *ngSwitchCase="'6'">
                        <div *ngIf="!isLoading" class="container-fluid" style="margin-top: 5px;">
                        <p style="display: inline">Turns: </p>
                         <canvas style="" baseChart width="30" height="10"
@@ -145,10 +155,13 @@
                                 [colors]="pieChartColors"
                                 [chartType]="pieChartType"
                                 ></canvas>
+                      </div>
                       </div><br>
-                      <p>Horse Performance: {{training?.horse_performance}}/5</p><br>
-                      <p>Rider Performance: {{training?.rider_performance}}/5</p><br>
-
+                      <div *ngSwitchCase="'7'">
+                      <p>Horse Performance: {{training?.horse_performance}}/5</p></div><br>
+                     <div *ngSwitchCase="'5'">
+                      <p >Rider Performance: {{training?.rider_performance}}/5</p><br>
+                     </div>
                     </div>
                   </div>
                   </div>
