@@ -119,12 +119,12 @@
                 <h4  [attr.data-target]="'#'+i" data-toggle=  class="rowsPadding">{{horse?.name}}</h4>
                   <div class="collapse" [attr.id]="i" style="">
 
-                    <div class="" *ngFor="let training of horse?.trainingsData; let trainingIndex = index" style="display: inline-flex;  margin-left: 20px; ;
-  margin-right: auto ; width: 100%; border: 1px solid black; margin-top: 10px;">
+                    <div class="" *ngFor="let training of horse?.trainingsData; let trainingIndex = index"
+                         style="display: inline-flex;  margin-left: 20px; margin-right: auto ; width: 100%; border: 1px solid black; margin-top: 10px;">
 
                       <p>{{ training?.date | date:'MMM:d,EEEE' }}</p><br>
 
-<<<<<<< HEAD
+
                       <div *ngSwitchCase="'0'">
                         <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;" >
 
@@ -138,11 +138,8 @@
                         </div>
                       </div>
 
-
-                      <div *ngSwitchCase="'2'">
-=======
                       <div *ngSwitchCase="'2'" >
->>>>>>> 58a69532a08849d2fbf01926d0bfac0a5f86932b
+
                       <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;" >
 
                         <p>Gait:</p>
@@ -218,7 +215,6 @@
                 </div>
 
                 <hr style="border-color: lightgrey; width:100%;">
-
 
           </md-tab>
         </md-tab-group>
