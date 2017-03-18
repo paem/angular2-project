@@ -63,3 +63,11 @@ select {
 .rTableFoot { display: table-footer-group; }
 .rTableCell, .rTableHead { display: table-cell; }
 
+.dataDisplay{
+  display: inline-flex;
+  margin-left: 20px;
+  margin-right: auto ;
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-top: 10px;
+}

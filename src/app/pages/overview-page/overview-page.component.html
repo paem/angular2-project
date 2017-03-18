@@ -122,10 +122,9 @@
                   <h4 [attr.data-target]="'#'+i" data-toggle="collapse" class="rowsPadding">{{horse?.name}}</h4>
                   <div class="collapse" [attr.id]="i" >
 
-                    <div class="" *ngFor="let training of horse?.trainingsData; let trainingIndex = index" style="display: inline-flex;  margin-left: 20px; ;
-  margin-right: auto ; width: 100%; border: 1px solid black; margin-top: 10px;">
+                    <div class="dataDisplay" *ngFor="let training of horse?.trainingsData; let trainingIndex = index">
 
-                      <p style="">{{ training?.date | date:'MMM:d,EEEE' }}</p><br>
+                      <p style="">{{ training?.date | date:'MMM:d,EEEE' }} -</p><br>
                       <div *ngSwitchCase="'0'">
                         <div>
                           <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;">
@@ -140,7 +139,7 @@
                           </div>
                         </div>
                         <div>
-                          <p> Surface: {{training?.ground}}</p><br>
+                          <p>Surface: {{training?.ground}}</p><br>
                         </div>
                         <div>
                           <p>Time: {{training?.total.time | secondsToTime}}</p><br>
