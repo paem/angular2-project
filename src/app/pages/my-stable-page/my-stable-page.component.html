@@ -10,7 +10,7 @@
         <h4 [attr.data-target]="'#'+i" data-toggle="collapse"  class="rowsPadding" >{{horse?.name}}</h4>
 
         <div class="collapse"  [attr.id]="i" style="">
-          <div class="rTable"  style="width: 100% !important;">
+          <div class="rTable">
             <div class="rTableRow">
               <div class="rTableHead"  *ngFor="let training of horse?.trainingsData; let dateIndex = index"><strong *ngIf="dateIndex<7">{{ training?.date | date:'MMM d EEEE' }}</strong></div>
             </div>

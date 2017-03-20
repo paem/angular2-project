@@ -15,7 +15,7 @@
 
 .rTable {
   display: table;
-  width: 60%;
+  width: 100%;
 }
 .rTableRow {
   display: table-row;
@@ -26,8 +26,7 @@
 }
 .rTableCell, .rTableHead {
   display: table-cell;
-  padding: 3px 10px;
-  border: 1px solid #999999;
+
 }
 .rTableHeading {
   display: table-header-group;
