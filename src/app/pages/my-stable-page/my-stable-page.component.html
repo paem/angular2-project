@@ -1,37 +1,38 @@
 <title>Equilab | My Stable</title>
 
-<div class="container">
+<div class="container" >
   <div class="wrapper">
 
-    <div id="page-wrapper" [@slideToLeft]="'true'">
+    <div id="page-wrapper"  [@slideToLeft]="'true'">
+
       <h1> My Stable Page </h1>
-      <div style="display: block" *ngFor="let horse of myPonnys; let i = index">
-        <h4 [attr.data-target]="'#'+i" data-toggle="collapse" class="rowsPadding">{{horse?.name}}</h4>
-        <div class="collapse" [attr.id]="i" style="">
-          <div *ngIf="i>0"> NO DATA TO SHOW AT THIS TIME</div>
-          <div class="rTable">
+      <div style="display: block; "  *ngFor="let horse of myPonnys; let i = index">
+        <h4 [attr.data-target]="'#'+i" data-toggle="collapse"  class="rowsPadding" >{{horse?.name}}</h4>
+
+        <div class="collapse"  [attr.id]="i" style="">
+          <div class="rTable"  style="width: 100% !important;">
             <div class="rTableRow">
-              <div class="rTableHead"  *ngFor="let training of horse?.trainingsData;"><strong> {{ training?.date | date:'MMM d EEEE' }}</strong></div>
+              <div class="rTableHead"  *ngFor="let training of horse?.trainingsData; let dateIndex = index"><strong *ngIf="dateIndex<7">{{ training?.date | date:'MMM d EEEE' }}</strong></div>
             </div>
             <div class="rTableRow">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData;">{{training?.ground}}</div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let groundIndex = index"><p *ngIf="groundIndex<7">{{training?.ground}}</p></div>
             </div>
             <div class="rTableRow">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData;">{{training?.total.time | secondsToTime}}</div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let timeIndex = index"><p *ngIf="timeIndex<7">{{training?.total.time | secondsToTime}}</p></div>
             </div>
             <div class="rTableRow">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData;">{{training?.total.distance | distance}}</div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let distanceIndex = index"><p *ngIf="distanceIndex<7">{{training?.total.distance | distance}}</p></div>
             </div>
             <div class="rTableRow">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData;"> {{training?.horse_performance}}</div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let hperformanceIndex = index"> <p *ngIf="hperformanceIndex<7">{{training?.horse_performance}}/5</p></div>
             </div>
             <div class="rTableRow">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData;">  {{training?.rider_performance}}</div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let rperformanceIndex = index">  <p *ngIf="rperformanceIndex<7">{{training?.rider_performance}}/5</p></div>
             </div>
             <div class="rTableRow">
               <div id="GaitContainer" class="rTableCell" *ngFor="let training of horse?.trainingsData; let trainingIndex = index">
-                  <div *ngIf="!isLoading" class="container-fluid">
-                    <canvas  style="display: inline;" baseChart width="100" height="70"
+                  <div *ngIf="trainingIndex<7" class="container-fluid">
+                    <canvas  *ngIf="isLoading" style="display: inline;" baseChart width="100" height="70"
                              [datasets]="[{data: [training?.canter?.time.toFixed(1), training?.trot?.time.toFixed(1), training?.walk?.time.toFixed(1)]}]"
                              [labels]="barChartLabels"
                              [options]="barChartOptions"
@@ -39,19 +40,25 @@
                              [chartType]="barChartType">
                     </canvas>
                   </div>
+                <div *ngIf="!isLoading" class="text-center">
+                  <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
+                </div>
                 </div>
             </div>
             <div class="rTableRow">
               <div id="TurnsContainer" class="rTableCell" *ngFor="let training of horse?.trainingsData; let trainingIndex = index">
-                <div  style="display:inline-flex;">
-                  <div *ngIf="!isLoading" class="container-fluid">
-                    <canvas style="display:inline;" baseChart width="150" height="50"
-                            [datasets]="[{data: [training?.turns?.leftTotal, training?.turns?.rightTotal],label: ['Left Turns', 'Right Turns']}]"
+                <div style="display:inline-flex;">
+                  <div *ngIf="trainingIndex<7" class="container-fluid">
+                    <canvas *ngIf="isLoading"  style="display:inline;" baseChart width="100" height="50"
+                            [datasets]="[{data: [training?.turns?.leftTotal.toFixed(1), training?.turns?.rightTotal.toFixed(1)],label: ['Left Turns', 'Right Turns']}]"
                             [labels]="pieChartLabels"
                             [options]="pieChartOptions"
                             [colors]="pieChartColors"
                             [chartType]="pieChartType"
                     ></canvas>
+                  </div>
+                  <div *ngIf="!isLoading" class="text-center">
+                    <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
                   </div>
                 </div>
               </div>

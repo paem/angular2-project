@@ -20,7 +20,7 @@ export class MyStablePageComponent implements OnInit {
   horseTrainings: Observable<any[]>;
   currentHorseTrainings = [];
 
-  isLoading = true;
+  isLoading = false;
   myPonnys = [];
 
   constructor(private angularfire: AngularFire) {
@@ -34,7 +34,7 @@ export class MyStablePageComponent implements OnInit {
           this.user = this.angularfire.database.object('userinfo/' + auth.uid);
           this.userKey = auth.uid;
           console.log(this.userKey);
-          // this.trainingsInfo();
+
           this.getHorses();
 
         }
@@ -48,14 +48,13 @@ export class MyStablePageComponent implements OnInit {
   getHorses() {
 
 
-    this.horses = this.angularfire.database.list('/v1/userinfo/' + this.userKey + '/horses/')
+    this.horses = this.angularfire.database.list('/v1/userinfo/' + '25sZYMr8t9ZZCMtoaCq7NffdIP93' + '/horses/')
       .map(horses => {
         horses.map(horse => {
           horse.data = this.angularfire.database.object('/v1/horses/' + horse.$key);
         });
         return horses;
       });
-
 
     this.horses.subscribe(horses => {
       // foreach horse
@@ -66,10 +65,11 @@ export class MyStablePageComponent implements OnInit {
 
           // Get trainings of the horse
           this.getTrainings(myHorse);
-
+          this.isLoading = true;
         })
       });
     });
+
   }
 
 
@@ -96,12 +96,11 @@ export class MyStablePageComponent implements OnInit {
       this.horseAndTrainings.subscribe((training: any) => {
         myhorse.trainingsData.push(training);
       });
-
     }
 
 
     this.myPonnys.push(myhorse);
-    this.isLoading = false;
+
 
   }
 
@@ -130,7 +129,8 @@ export class MyStablePageComponent implements OnInit {
       yPadding: 0,
       cornerRadius: 2,
       position: 'nearest',
-    }
+    },
+
 
   };
 
@@ -161,9 +161,6 @@ export class MyStablePageComponent implements OnInit {
     tooltipEvents: [],
     showTooltips: true,
     tooltipCaretSize: 0,
-    onAnimationComplete: function () {
-      this.showTooltip(this.segments, true);
-    },
 
   };
 
