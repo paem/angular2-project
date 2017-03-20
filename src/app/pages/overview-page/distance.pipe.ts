@@ -10,7 +10,7 @@ export class distancePipe implements PipeTransform {
   transform(meters){
     let distance_string: string = '';
     let plural: string = '';
-    for(var key in this.distance){
+    for(let key in this.distance){
       if(Math.floor(meters / this.distance[key]) > 0){
         if(Math.floor(meters / this.distance[key]) >1 ){
           plural = '';

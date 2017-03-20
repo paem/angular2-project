@@ -23,7 +23,7 @@ export class OverviewPageComponent implements OnInit {
 
   weekOfYear: Date = new Date();
   // today = new Date();
-  num: number= 0;
+  num: number = 0;
   private days = [
     {id: 1, name: moment().days(1).format('dddd')},
     {id: 2, name: moment().days(2).format('dddd')},
@@ -144,7 +144,6 @@ export class OverviewPageComponent implements OnInit {
    */
 
 
-
   private list = [
     {id: 0, name: 'Overview'},
     {id: 1, name: 'Surface'},
@@ -210,11 +209,11 @@ export class OverviewPageComponent implements OnInit {
         display: false
       }]
     },
-    tooltips:{
-      xPadding:0,
-      yPadding:0,
-      cornerRadius:2,
-      position:'nearest',
+    tooltips: {
+      xPadding: 0,
+      yPadding: 0,
+      cornerRadius: 2,
+      position: 'nearest',
     }
 
   };

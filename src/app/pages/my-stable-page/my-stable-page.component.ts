@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {fadeInAnimation} from "../../shared/animations/fadeIn.animation";
 import {slideToLeft} from "../../shared/animations/router.animations";
 import {AngularFire, FirebaseListObservable} from "angularfire2";
@@ -13,7 +13,7 @@ import {Observable} from "rxjs";
 
 })
 
-export class MyStablePageComponent {
+export class MyStablePageComponent implements OnInit {
   public userKey: string;
   public user: any;
   horses: Observable<any[]>;
@@ -104,4 +104,74 @@ export class MyStablePageComponent {
     this.isLoading = false;
 
   }
+
+
+  public barChartOptions: any = {
+    responsive: false,
+    maintainAspectRatio: true,
+    scaleShowHorizontalLines: false,
+    scaleShowVerticalLines: false,
+    animationEasing: "easeInOutElastic",
+    scaleShowLabels: false,
+    legend: {display: false},
+    layout: {
+      padding: 0
+    },
+    scales: {
+      xAxes: [{
+        display: false
+      }],
+      yAxes: [{
+        display: false
+      }]
+    },
+    tooltips: {
+      xPadding: 0,
+      yPadding: 0,
+      cornerRadius: 2,
+      position: 'nearest',
+    }
+
+  };
+
+
+  public barChartLabels: string[] = ['Canter', 'Trot', 'Walk'];
+  public barChartType: string = 'horizontalBar';
+  public barChartLegend: boolean = true;
+
+  public barChartColors: Array<any> = [
+    {
+      backgroundColor: '#ED6C44',
+      borderColor: '#000000',
+      pointBackgroundColor: 'rgba(77,83,96,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: '#fff'
+
+    }
+
+
+  ];
+
+
+  public pieChartOptions: any = {
+    responsive: true,
+    animationEasing: "easeInOutElastic",
+    legend: {display: false},
+    tooltipEvents: [],
+    showTooltips: true,
+    tooltipCaretSize: 0,
+    onAnimationComplete: function () {
+      this.showTooltip(this.segments, true);
+    },
+
+  };
+
+  public pieChartLabels: string[] = ['Left Turns', 'Right Turns'];
+  public pieChartType: string = 'pie';
+
+
+  public pieChartColors: Array<any> = [{backgroundColor: ["#ED6C44", "#00d9f9"]}];
+
+
 }

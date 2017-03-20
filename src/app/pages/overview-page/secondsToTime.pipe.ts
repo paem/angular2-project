@@ -10,7 +10,7 @@ export class secondsToTimePipe implements PipeTransform {
   transform(seconds){
     let time_string: string = '';
     let plural: string = '';
-    for(var key in this.times){
+    for(let key in this.times){
       if(Math.floor(seconds / this.times[key]) > 0){
         if(Math.floor(seconds / this.times[key]) >1 ){
           plural = 's';
