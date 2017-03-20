@@ -20,7 +20,6 @@
               </option>
             </select>
 
-
             <hr style="border-color: lightgrey; width:100%;">
             <p *ngFor='let v of _values2'>{{ v }} </p>
           </md-tab>
@@ -33,7 +32,7 @@
               <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}
               </option>
             </select>
-
+            
             <div class="rTable" style="width: 100%; height: 170px;">
               <div class="rTableRow">
 
@@ -48,7 +47,15 @@
 
                     <div class="" *ngFor="let training of horse?.trainingsData; let trainingIndex = index"
 
+<<<<<<< HEAD
                          style="display: inline-flex; border-bottom: 1px solid lightgrey; margin-left: 20px; margin-top: 10px; width: 1100px; height: 130px;">
+=======
+                         style="display: inline-flex; border: 1px solid black; margin-left: 20px; margin-top: 10px; width: 1100px;">
+                      <div>
+                        <div class="rTableHead rowsPadding">{{ training?.date | date:'MMM:d,EEEE' }}</div>
+                        <br>
+                        <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;">
+>>>>>>> origin/master
 
 
                       <div class="rTableHead rowsPadding">{{ training?.date | date:'MMM d EEEE' }}</div>
@@ -122,11 +129,16 @@
                   <h4 [attr.data-target]="'#'+i" data-toggle="collapse" class="rowsPadding">{{horse?.name}}</h4>
                   <div class="collapse" [attr.id]="i">
 
+<<<<<<< HEAD
                     <div class="" *ngFor="let training of horse?.trainingsData; let trainingIndex = index" style="display: inline-flex;  margin-left: 20px; ;
                           margin-right: auto ; width: 100%; border-bottom: 1px solid lightgrey; margin-top: 10px;">
+=======
+                    <div class="dataDisplay" *ngFor="let training of horse?.trainingsData; let trainingIndex = index">
+>>>>>>> origin/master
 
-                      <p style="">{{ training?.date | date:'MMM d EEEE' }}</p><br>
+                      <p style="">{{ training?.date | date:'MMM:d,EEEE' }} -</p><br>
                       <div *ngSwitchCase="'0'">
+<<<<<<< HEAD
 
                         <div *ngIf="!isLoading" class="container-fluid" style="">
 
@@ -137,10 +149,23 @@
                                   [options]="barChartOptions"
                                   [colors]="barChartColors"
                                   [chartType]="barChartType"></canvas>
+=======
+                        <div>
+                          <div *ngIf="!isLoading" class="container-fluid" style="display:inline; margin-top: 5px;">
+
+                            <p>Gait:</p>
+                            <canvas style="display: inline-flex;" baseChart width="100" height="70"
+                                    [datasets]="[{data: [training?.canter?.time.toFixed(1), training?.trot?.time.toFixed(1), training?.walk?.time.toFixed(1)]}]"
+                                    [labels]="barChartLabels"
+                                    [options]="barChartOptions"
+                                    [colors]="barChartColors"
+                                    [chartType]="barChartType"></canvas>
+                          </div>
+>>>>>>> origin/master
                         </div>
 
                         <div>
-                          <p> Surface: {{training?.ground}}</p><br>
+                          <p>Surface: {{training?.ground}}</p><br>
                         </div>
                         <div>
                           <p>Time: {{training?.total.time | secondsToTime}}</p><br>
