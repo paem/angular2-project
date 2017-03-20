@@ -48,7 +48,7 @@ export class MyStablePageComponent implements OnInit {
   getHorses() {
 
 
-    this.horses = this.angularfire.database.list('/v1/userinfo/' + '25sZYMr8t9ZZCMtoaCq7NffdIP93' + '/horses/')
+    this.horses = this.angularfire.database.list('/v1/userinfo/' + this.userKey + '/horses/')
       .map(horses => {
         horses.map(horse => {
           horse.data = this.angularfire.database.object('/v1/horses/' + horse.$key);
