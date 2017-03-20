@@ -1,4 +1,6 @@
 //Equilab project
+
+
 .container{
   padding-left: 250px;
   margin-top: 60px;
@@ -12,15 +14,25 @@
   }
 }
 
+.selectStyle{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+.rowsPadding{
+  padding: 25px 0px 0px 0px;
+  color:grey;
+}
+
 select {
   border-color: #FFFFFF;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.26);
   height: 30px;
   font-size: 16px;
-  margin-left: 15px;
-  margin-top: 15px;
   color: grey;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -35,6 +47,15 @@ select {
   color: grey;
 }
 p{
+  font-family: Verdana,sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color:grey;
+}
+strong{
+  font-family: Verdana,sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
   color:grey;
 }
 .rTable {

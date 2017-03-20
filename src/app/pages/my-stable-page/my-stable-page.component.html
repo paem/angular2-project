@@ -1,46 +1,48 @@
 <title>Equilab | My Stable</title>
 
+
 <div class="container" >
   <div class="wrapper">
 
     <div id="page-wrapper" [ngSwitch]="current" [@slideToLeft]="'true'">
       <h1> My Stable Page </h1>
 
-      <select #select [(ngModel)]="current" [ngClass]="{setColor: current}"
+      <div class="selectStyle" >
+        <select #select [(ngModel)]="current" [ngClass]="{setColor: current}"
               (change)="selectedFromList($event.target.selectedIndex)">
-        <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}
-        </option>
-      </select>
-
+          <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}
+          </option>
+        </select>
+      </div>
 
       <div style="display: block; "  *ngFor="let horse of myPonnys; let i = index">
-        <h4 [attr.data-target]="'#'+i" data-toggle="collapse"  class="rowsPadding" >{{horse?.name}}</h4>
+       <h4 [attr.data-target]="'#'+i" data-toggle="collapse"  class="rowsPadding" >{{horse?.name}}</h4><hr>
 
         <div class="collapse"  [attr.id]="i" style="">
           <div class="rTable">
             <!-- Date -->
             <div class="rTableRow">
-              <div class="rTableHead"  *ngFor="let training of horse?.trainingsData; let dateIndex = index"><strong *ngIf="dateIndex<7">{{ training?.date | date:'MMM d EEEE' }}</strong></div>
+              <div class="rTableHead"  *ngFor="let training of horse?.trainingsData; let dateIndex = index"><strong *ngIf="dateIndex<7">{{ training?.date | date:'MMM d EEEE' }}</strong><hr></div>
             </div>
             <!-- Surface -->
             <div class="rTableRow" *ngSwitchCase="'2'">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let groundIndex = index"><p *ngIf="groundIndex<7">{{training?.ground}}</p></div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let groundIndex = index"><p *ngIf="groundIndex<7">{{training?.ground}}</p><hr></div>
             </div>
             <!-- Time -->
             <div class="rTableRow" *ngSwitchCase="'4'">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let timeIndex = index"><p *ngIf="timeIndex<7">{{training?.total.time | secondsToTime}}</p></div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let timeIndex = index"><p *ngIf="timeIndex<7">{{training?.total.time | secondsToTime}}</p><hr></div>
             </div>
             <!-- Distance -->
             <div class="rTableRow" *ngSwitchCase="'5'">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let distanceIndex = index"><p *ngIf="distanceIndex<7">{{training?.total.distance | distance}}</p></div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let distanceIndex = index"><p *ngIf="distanceIndex<7">{{training?.total.distance | distance}}</p><hr></div>
             </div>
             <!-- Horse Preformance -->
             <div class="rTableRow" *ngSwitchCase="'8'">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let hperformanceIndex = index"> <p *ngIf="hperformanceIndex<7">{{training?.horse_performance}}/5</p></div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let hperformanceIndex = index"> <p *ngIf="hperformanceIndex<7">{{training?.horse_performance}}/5</p><hr></div>
             </div>
             <!-- Rider Preformance -->
             <div class="rTableRow" *ngSwitchCase="'6'">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let rperformanceIndex = index">  <p *ngIf="rperformanceIndex<7">{{training?.rider_performance}}/5</p></div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let rperformanceIndex = index">  <p *ngIf="rperformanceIndex<7">{{training?.rider_performance}}/5</p><hr></div>
             </div>
             <!-- Gait -->
             <div class="rTableRow" *ngSwitchCase="'3'">
@@ -52,7 +54,7 @@
                              [options]="barChartOptions"
                              [colors]="barChartColors"
                              [chartType]="barChartType">
-                    </canvas>
+                    </canvas><hr>
                   </div>
                 <div *ngIf="!isLoading" class="text-center">
                   <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
@@ -70,7 +72,7 @@
                             [options]="pieChartOptions"
                             [colors]="pieChartColors"
                             [chartType]="pieChartType"
-                    ></canvas>
+                    ></canvas><hr>
                   </div>
                   <div *ngIf="!isLoading" class="text-center">
                     <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
@@ -80,19 +82,19 @@
             </div>
             <!-- Overview -->
             <div class="rTableRow" *ngSwitchCase="'1'">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let groundIndex = index"><p *ngIf="groundIndex<7">{{training?.ground}}</p></div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let groundIndex = index"><p *ngIf="groundIndex<7">{{training?.ground}}</p><hr></div>
             </div>
             <div class="rTableRow" *ngSwitchCase="'1'">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let timeIndex = index"><p *ngIf="timeIndex<7">{{training?.total.time | secondsToTime}}</p></div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let timeIndex = index"><p *ngIf="timeIndex<7">{{training?.total.time | secondsToTime}}</p><hr></div>
             </div>
             <div class="rTableRow" *ngSwitchCase="'1'">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let distanceIndex = index"><p *ngIf="distanceIndex<7">{{training?.total.distance | distance}}</p></div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let distanceIndex = index"><p *ngIf="distanceIndex<7">{{training?.total.distance | distance}}</p><hr></div>
             </div>
             <div class="rTableRow" *ngSwitchCase="'1'">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let hperformanceIndex = index"> <p *ngIf="hperformanceIndex<7">{{training?.horse_performance}}/5</p></div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let hperformanceIndex = index"> <p *ngIf="hperformanceIndex<7">{{training?.horse_performance}}/5</p><hr></div>
             </div>
             <div class="rTableRow" *ngSwitchCase="'1'">
-              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let rperformanceIndex = index">  <p *ngIf="rperformanceIndex<7">{{training?.rider_performance}}/5</p></div>
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let rperformanceIndex = index">  <p *ngIf="rperformanceIndex<7">{{training?.rider_performance}}/5</p><hr></div>
             </div>
             <div class="rTableRow" *ngSwitchCase="'1'">
               <div id="g" class="rTableCell" *ngFor="let training of horse?.trainingsData; let trainingIndex = index">
@@ -104,6 +106,7 @@
                            [colors]="barChartColors"
                            [chartType]="barChartType">
                   </canvas>
+                  <hr>
                 </div>
                 <div *ngIf="!isLoading" class="text-center">
                   <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
@@ -121,6 +124,7 @@
                             [colors]="pieChartColors"
                             [chartType]="pieChartType"
                     ></canvas>
+                    <hr>
                   </div>
                   <div *ngIf="!isLoading" class="text-center">
                     <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
