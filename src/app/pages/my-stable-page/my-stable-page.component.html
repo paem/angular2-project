@@ -3,33 +3,47 @@
 <div class="container" >
   <div class="wrapper">
 
-    <div id="page-wrapper"  [@slideToLeft]="'true'">
-
+    <div id="page-wrapper" [ngSwitch]="current" [@slideToLeft]="'true'">
       <h1> My Stable Page </h1>
+
+      <select #select [(ngModel)]="current" [ngClass]="{setColor: current}"
+              (change)="selectedFromList($event.target.selectedIndex)">
+        <option *ngFor="let item of list" [ngClass]="{unSetColor: item}" [value]="item.id">{{item.name}}
+        </option>
+      </select>
+
+
       <div style="display: block; "  *ngFor="let horse of myPonnys; let i = index">
         <h4 [attr.data-target]="'#'+i" data-toggle="collapse"  class="rowsPadding" >{{horse?.name}}</h4>
 
         <div class="collapse"  [attr.id]="i" style="">
           <div class="rTable">
+            <!-- Date -->
             <div class="rTableRow">
               <div class="rTableHead"  *ngFor="let training of horse?.trainingsData; let dateIndex = index"><strong *ngIf="dateIndex<7">{{ training?.date | date:'MMM d EEEE' }}</strong></div>
             </div>
-            <div class="rTableRow">
+            <!-- Surface -->
+            <div class="rTableRow" *ngSwitchCase="'2'">
               <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let groundIndex = index"><p *ngIf="groundIndex<7">{{training?.ground}}</p></div>
             </div>
-            <div class="rTableRow">
+            <!-- Time -->
+            <div class="rTableRow" *ngSwitchCase="'4'">
               <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let timeIndex = index"><p *ngIf="timeIndex<7">{{training?.total.time | secondsToTime}}</p></div>
             </div>
-            <div class="rTableRow">
+            <!-- Distance -->
+            <div class="rTableRow" *ngSwitchCase="'5'">
               <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let distanceIndex = index"><p *ngIf="distanceIndex<7">{{training?.total.distance | distance}}</p></div>
             </div>
-            <div class="rTableRow">
+            <!-- Horse Preformance -->
+            <div class="rTableRow" *ngSwitchCase="'8'">
               <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let hperformanceIndex = index"> <p *ngIf="hperformanceIndex<7">{{training?.horse_performance}}/5</p></div>
             </div>
-            <div class="rTableRow">
+            <!-- Rider Preformance -->
+            <div class="rTableRow" *ngSwitchCase="'6'">
               <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let rperformanceIndex = index">  <p *ngIf="rperformanceIndex<7">{{training?.rider_performance}}/5</p></div>
             </div>
-            <div class="rTableRow">
+            <!-- Gait -->
+            <div class="rTableRow" *ngSwitchCase="'3'">
               <div id="GaitContainer" class="rTableCell" *ngFor="let training of horse?.trainingsData; let trainingIndex = index">
                   <div *ngIf="trainingIndex<7" class="container-fluid">
                     <canvas  *ngIf="isLoading" style="display: inline;" baseChart width="100" height="70"
@@ -45,8 +59,59 @@
                 </div>
                 </div>
             </div>
-            <div class="rTableRow">
+            <!-- Turns -->
+            <div class="rTableRow" *ngSwitchCase="'7'">
               <div id="TurnsContainer" class="rTableCell" *ngFor="let training of horse?.trainingsData; let trainingIndex = index">
+                <div style="display:inline-flex;">
+                  <div *ngIf="trainingIndex<7" class="container-fluid">
+                    <canvas *ngIf="isLoading"  style="display:inline;" baseChart width="100" height="50"
+                            [datasets]="[{data: [training?.turns?.leftTotal.toFixed(1), training?.turns?.rightTotal.toFixed(1)],label: ['Left Turns', 'Right Turns']}]"
+                            [labels]="pieChartLabels"
+                            [options]="pieChartOptions"
+                            [colors]="pieChartColors"
+                            [chartType]="pieChartType"
+                    ></canvas>
+                  </div>
+                  <div *ngIf="!isLoading" class="text-center">
+                    <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Overview -->
+            <div class="rTableRow" *ngSwitchCase="'1'">
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let groundIndex = index"><p *ngIf="groundIndex<7">{{training?.ground}}</p></div>
+            </div>
+            <div class="rTableRow" *ngSwitchCase="'1'">
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let timeIndex = index"><p *ngIf="timeIndex<7">{{training?.total.time | secondsToTime}}</p></div>
+            </div>
+            <div class="rTableRow" *ngSwitchCase="'1'">
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let distanceIndex = index"><p *ngIf="distanceIndex<7">{{training?.total.distance | distance}}</p></div>
+            </div>
+            <div class="rTableRow" *ngSwitchCase="'1'">
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let hperformanceIndex = index"> <p *ngIf="hperformanceIndex<7">{{training?.horse_performance}}/5</p></div>
+            </div>
+            <div class="rTableRow" *ngSwitchCase="'1'">
+              <div class="rTableCell" *ngFor="let training of horse?.trainingsData; let rperformanceIndex = index">  <p *ngIf="rperformanceIndex<7">{{training?.rider_performance}}/5</p></div>
+            </div>
+            <div class="rTableRow" *ngSwitchCase="'1'">
+              <div id="g" class="rTableCell" *ngFor="let training of horse?.trainingsData; let trainingIndex = index">
+                <div *ngIf="trainingIndex<7" class="container-fluid">
+                  <canvas  *ngIf="isLoading" style="display: inline;" baseChart width="100" height="70"
+                           [datasets]="[{data: [training?.canter?.time.toFixed(1), training?.trot?.time.toFixed(1), training?.walk?.time.toFixed(1)]}]"
+                           [labels]="barChartLabels"
+                           [options]="barChartOptions"
+                           [colors]="barChartColors"
+                           [chartType]="barChartType">
+                  </canvas>
+                </div>
+                <div *ngIf="!isLoading" class="text-center">
+                  <md-progress-spinner mode="indeterminate" color="primary">Loading</md-progress-spinner>
+                </div>
+              </div>
+            </div>
+            <div class="rTableRow" *ngSwitchCase="'1'">
+              <div id="t" class="rTableCell" *ngFor="let training of horse?.trainingsData; let trainingIndex = index">
                 <div style="display:inline-flex;">
                   <div *ngIf="trainingIndex<7" class="container-fluid">
                     <canvas *ngIf="isLoading"  style="display:inline;" baseChart width="100" height="50"

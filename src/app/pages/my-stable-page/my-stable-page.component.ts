@@ -170,5 +170,52 @@ export class MyStablePageComponent implements OnInit {
 
   public pieChartColors: Array<any> = [{backgroundColor: ["#ED6C44", "#00d9f9"]}];
 
+  private list = [
+    {id: 1, name: 'Overview'},
+    {id: 2, name: 'Surface'},
+    {id: 3, name: 'Gait'},
+    {id: 4, name: 'Time'},
+    {id: 5, name: 'Distance'},
+    {id: 6, name: 'Rider'},
+    {id: 7, name: 'Turns'},
+    {id: 8, name: 'Performance'}
+  ];
+
+  private _values2 = [];
+  private current: number = 1;
+  private log: string = '';
+
+  private logDropdown(id: number): void {
+    const NAME = this.list.find((item: any) => item.id == id).name;
+    // this.log += `Value ${NAME} was selected\n`
+  }
+
+  selectedFromList(name: any) {
+
+    const obj = this.list[name];
+    console.log(name, obj);
+    if (!obj) return;
+
+    if (obj.id == 1) {
+    }
+    else if (obj.id == 2) {
+    }
+    else if (obj.id == 3) {
+    }
+    else if (obj.id == 4) {
+    }
+    else if (obj.id == 5) {
+    }
+    else if (obj.id == 6) {
+    }
+    else if (obj.id == 7) {
+    }
+    else if (obj.id == 8) {
+    }
+    else {
+      this._values2 = [];
+    }
+  }
 
 }
+

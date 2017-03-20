@@ -12,7 +12,31 @@
   }
 }
 
+select {
+  border-color: #FFFFFF;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.26);
+  height: 30px;
+  font-size: 16px;
+  margin-left: 15px;
+  margin-top: 15px;
+  color: grey;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 5px;
+}
+.setColor{
+  color: #ED6C44;
+  font-weight:bold;
 
+}
+.unSetColor{
+  color: grey;
+}
+p{
+  color:grey;
+}
 .rTable {
   display: table;
   width: 100%;
