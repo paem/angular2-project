@@ -9,18 +9,15 @@ import {routing} from "./app.routing";
 import { MaterialModule } from '@angular/material';
 import {AF} from "./services/af";
 import { AuthGuard } from "./shared/guard/auth.guard";
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import {ProfilePageComponent} from './pages/profile-page/profile-page.component';
-import {AboutPageComponent} from './pages/about-page/about-page.component';
-import {NavComponent} from './navbar/nav/nav.component';
+import { TournamentsPageComponent } from './pages/tournaments-page/tournaments-page.component';
 import {MyStablePageComponent} from './pages/my-stable-page/my-stable-page.component';
 import {SideNavComponent} from './navbar/sidenav/sidenav.component';
 import {OverviewPageComponent} from './pages/overview-page/overview-page.component'
 import {ChartsModule} from "ng2-charts";
 import { CollapseDirective } from 'ng2-bootstrap';
 import {WeekPipe} from "./pages/overview-page/week.pipe";
-import {secondsToTimePipe} from "./pages/overview-page/secondsToTime.pipe";
-import {distancePipe} from "./pages/overview-page/distance.pipe";
+import {secondsToTimePipe} from "./shared/secondsToTime.pipe";
+import {distancePipe} from "./shared/distance.pipe";
 
 
 
@@ -47,12 +44,9 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     LoginPageComponent,
-    HomePageComponent,
-    NavComponent,
+    TournamentsPageComponent,
     SideNavComponent,
     OverviewPageComponent,
-    ProfilePageComponent,
-    AboutPageComponent,
     MyStablePageComponent,
     CollapseDirective,
     WeekPipe,

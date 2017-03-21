@@ -1,0 +1,25 @@
+/* Equilab project */
+.container{
+  padding-left: 250px;
+  margin-top: 60px;
+  width: auto;
+}
+@media screen and (max-width: 750px){
+  .container{
+    padding-left: 120px;
+    margin-top: 60px;
+    width: auto;
+  }
+}
+ul{
+  margin-top: 50px;
+}
+li{
+  float:left; width:180px;
+}
+.block{
+  display: block;
+}
+.leftLoad{
+  padding-left: 150px;
+}
