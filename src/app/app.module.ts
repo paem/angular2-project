@@ -15,7 +15,6 @@ import {SideNavComponent} from './navbar/sidenav/sidenav.component';
 import {OverviewPageComponent} from './pages/overview-page/overview-page.component'
 import {ChartsModule} from "ng2-charts";
 import { CollapseDirective } from 'ng2-bootstrap';
-import {WeekPipe} from "./pages/overview-page/week.pipe";
 import {secondsToTimePipe} from "./shared/secondsToTime.pipe";
 import {distancePipe} from "./shared/distance.pipe";
 
@@ -46,7 +45,6 @@ export const firebaseConfig = {
     OverviewPageComponent,
     MyStablePageComponent,
     CollapseDirective,
-    WeekPipe,
     secondsToTimePipe,
     distancePipe,
 
