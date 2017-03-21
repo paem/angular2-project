@@ -2,7 +2,7 @@
 
 
 .container{
-  padding-left: 250px;
+  padding-left: 200px;
   margin-top: 60px;
   width: auto;
 }
@@ -13,6 +13,9 @@
     width: auto;
   }
 }
+
+
+
 
 .selectStyle{
   padding-top: 20px;
@@ -68,10 +71,11 @@ strong{
 }
 .rTable {
   display: table;
-  width: 100%;
+  width: 100% !important;
 }
 .rTableRow {
   display: table-row;
+  
 }
 .rTableHeading {
   display: table-header-group;

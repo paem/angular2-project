@@ -20,9 +20,6 @@ import {secondsToTimePipe} from "./shared/secondsToTime.pipe";
 import {distancePipe} from "./shared/distance.pipe";
 
 
-
-
-
 export const firebaseConfig = {
   apiKey: "AIzaSyBLAepT58ZEGZssaxDa5ohWJo3fjpP9gD8",
   authDomain: "equilab-157516.firebaseapp.com",

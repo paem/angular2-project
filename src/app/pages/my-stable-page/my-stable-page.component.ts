@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {fadeInAnimation} from "../../shared/animations/fadeIn.animation";
 import {slideToLeft} from "../../shared/animations/router.animations";
-import {AngularFire, FirebaseListObservable} from "angularfire2";
+import {AngularFire} from "angularfire2";
 import {Observable} from "rxjs";
 
 @Component({
@@ -17,8 +17,7 @@ export class MyStablePageComponent implements OnInit {
   public userKey: string;
   public user: any;
   horses: Observable<any[]>;
-  horseTrainings: Observable<any[]>;
-  currentHorseTrainings = [];
+
 
   isLoading = false;
   myPonnys = [];
@@ -72,8 +71,6 @@ export class MyStablePageComponent implements OnInit {
 
   }
 
-
-  barChartData: any[] = [];
 
   horseAndTrainings: Observable<any[]>;
 
@@ -137,7 +134,6 @@ export class MyStablePageComponent implements OnInit {
 
   public barChartLabels: string[] = ['Canter', 'Trot', 'Walk'];
   public barChartType: string = 'horizontalBar';
-  public barChartLegend: boolean = true;
 
   public barChartColors: Array<any> = [
     {
