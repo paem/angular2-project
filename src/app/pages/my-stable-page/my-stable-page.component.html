@@ -16,7 +16,7 @@
       </div>
 
       <div style="display: block; "  *ngFor="let horse of myPonnys; let i = index">
-       <h4 [attr.data-target]="'#'+i" data-toggle="collapse"  class="rowsPadding" >{{horse?.name}}</h4><hr>
+       <h4 [@fadeIn]="'true'" [attr.data-target]="'#'+i" data-toggle="collapse"  class="rowsPadding" >{{horse?.name}}</h4><hr>
 
         <div class="collapse"  [attr.id]="i" style="">
           <div class="rTable">

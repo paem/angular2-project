@@ -19,23 +19,6 @@ export class AF {
   }
 
 
- /* get userEmail(){
-
-    this.af.auth.subscribe(user => {
-
-      if(user) {
-// gets users email if logged in
-        this.user = this.af.auth.getAuth().auth.email
-
-      }
-      else {
-// user not logged in
-
-      }
-    });
-    return this.user;
-  }
-*/
 
  isAuthenticated(): Observable<boolean> {
     const subject = new Subject<boolean>();
