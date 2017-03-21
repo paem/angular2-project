@@ -68,7 +68,7 @@
             <div class="rTableRow" *ngSwitchCase="'7'">
               <div id="TurnsContainer" class="rTableCell" *ngFor="let training of horse?.trainingsData; let trainingIndex = index">
 
-                  <div *ngIf="trainingIndex<7" class="container-fluid" style="width: 200px; margin-right: 150px;">
+                  <div *ngIf="trainingIndex<7" style="width: 200px; margin-right: 0px;">
                     <canvas *ngIf="isLoading"  style="display: inline-flex; margin-right: 150px;" baseChart width="30" height="15"
                             [datasets]="[{data: [training?.turns?.leftTotal.toFixed(1), training?.turns?.rightTotal.toFixed(1)],label: ['Left Turns', 'Right Turns']}]"
                             [labels]="pieChartLabels"
@@ -122,7 +122,7 @@
             <div class="rTableRow" *ngSwitchCase="'1'">
               <div id="t" class="rTableCell" *ngFor="let training of horse?.trainingsData; let trainingIndex = index">
 
-                  <div *ngIf="trainingIndex<7" class="container-fluid" style="width: 200px; margin-right: 220px;">
+                  <div *ngIf="trainingIndex<7" style="width: 200px; margin-right: 0px;">
                     <canvas *ngIf="isLoading"  style="display:inline-flex;" baseChart width="80" height="50"
                             [datasets]="[{data: [training?.turns?.leftTotal.toFixed(1), training?.turns?.rightTotal.toFixed(1)],label: ['Left Turns', 'Right Turns']}]"
                             [labels]="pieChartLabels"
