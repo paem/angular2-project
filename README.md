@@ -12,3 +12,10 @@ To login:
 Email = test@test.se
 
 Password = password123
+
+
+# Pictures
+<p align="center">
+<img src="./images/equilab.PNG">
+<img src="./images/overview.PNG">
+</p>
